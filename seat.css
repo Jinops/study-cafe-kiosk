@@ -1,0 +1,16 @@
+.room {
+  width: 80%;
+  padding-bottom:80%;
+  border: 0.1em solid black;
+  display: inline-block;
+}
+
+.seat {
+  border: 0.1em solid black;
+  width: 20%;
+  height: 5%;
+  position:absolute;
+  display : flex;
+  justify-content : center;
+  align-items : center;
+}
