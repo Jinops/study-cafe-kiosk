@@ -6,11 +6,8 @@
 }
 
 .seat {
-  border: 1px solid black;
+  border: 1em solid black;
   width: 20%;
   height: 10%;
   position:absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
