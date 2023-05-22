@@ -10,6 +10,9 @@ window.onload = function(){
       clearInterval(progress);
       step1.style.display = "none";
       step2.style.display = "block";
+      setTimeout(function(){
+        window.location.href="./index.html";
+      },2000);
     }
   },500);
 }
