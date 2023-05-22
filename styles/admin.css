@@ -1,6 +1,10 @@
+body {
+  height: 100%;
+}
 #menu {
   background-color: black;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   color: white;
 }
 
