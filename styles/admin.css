@@ -3,3 +3,8 @@ ul {
   height: 100vh;
   color: white;
 }
+
+.selected {
+  background-color: white;
+  color:black;
+}
