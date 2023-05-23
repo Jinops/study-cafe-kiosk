@@ -10,6 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- for bootstrap icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!-- for custom -->
+  <link rel="stylesheet" href="./styles/admin_seat.css">
 </head>
 
 <body>
@@ -25,7 +27,6 @@
       <hr/>
       <!-- TODO: remove -->
       <div id="TODO_REMOVE">
-      <link rel="stylesheet" href="../styles/seat.css">
       <!-- controller -->
       <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
         <li class="col nav-item" role="presentation">
