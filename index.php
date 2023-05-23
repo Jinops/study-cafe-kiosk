@@ -24,16 +24,22 @@
             <h2>공지사항</h2>
           </div>
           <div class="col-2 text-end">
-            <i class="btn bi bi-gear" onclick="window.open('./admin/admin.html')"></i>
+            <i class="btn bi bi-gear" onclick="window.open('./admin/admin_notice.php')"></i>
           </div>
           </div>
-          <textarea class="form-control" rows="8"> Ad consequat enim tempor reprehenderit minim aliquip minim voluptate labore.
-              Veniam nisi sint id ut in ut proident eiusmod culpa cillum. Irure laboris
-              laboris consectetur dolor cupidatat. Sunt incididunt voluptate cillum sit in.
-              Mollit laboris id et eiusmod deserunt ipsum aliqua occaecat deserunt cupidatat.
-              Culpa ullamco in consequat nulla. Irure id officia aliquip ipsum amet sit et
-              duis.
-            </textarea>
+          <?php
+
+$mysqli = new mysqli("localhost", "root", "", "jwpark");
+$query = "SELECT * FROM Notice";
+$res = mysqli_query($mysqli, $query);
+
+while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+  $content = $row['Content']; 
+  echo ("<textarea class='form-control' rows='8'>"
+      .$content.
+    "</textarea>");
+ }
+ ?>
         </div>
         <div class="col-4">
           <form id="form_login">

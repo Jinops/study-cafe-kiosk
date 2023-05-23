@@ -25,13 +25,18 @@
       <hr />
       <div>
         <div class="text-center">
-          <textarea class="form-control my-3" rows="8"> Ad consequat enim tempor reprehenderit minim aliquip minim voluptate labore.
-          Veniam nisi sint id ut in ut proident eiusmod culpa cillum. Irure laboris
-          laboris consectetur dolor cupidatat. Sunt incididunt voluptate cillum sit in.
-          Mollit laboris id et eiusmod deserunt ipsum aliqua occaecat deserunt cupidatat.
-          Culpa ullamco in consequat nulla. Irure id officia aliquip ipsum amet sit et
-          duis.
-          </textarea>
+        <?php 
+          $mysqli = new mysqli("localhost", "root", "", "jwpark");
+          $query = "SELECT * FROM Notice";
+          $res = mysqli_query($mysqli, $query);
+          
+          while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+            $content = $row['Content']; 
+            echo ("<textarea class='form-control my-3' rows='8'>"
+                .$content.
+              "</textarea>");
+           }
+        ?>
         </div>
         <div class="text-end">
           <button class="btn btn-primary">저장</button>

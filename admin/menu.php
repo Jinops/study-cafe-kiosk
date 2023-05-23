@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="styles/admin.css">
+<link rel="stylesheet" href="styles/style.css">
 
 <ul id="menu" class="navbar-nav pt-3">
   <h5 class="text-center">산공 스터디카페</h5>
