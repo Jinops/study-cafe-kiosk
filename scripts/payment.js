@@ -11,7 +11,7 @@ window.onload = function(){
       step1.style.display = "none";
       step2.style.display = "block";
       setTimeout(function(){
-        window.location.href="./index.html";
+        window.location.href="./index.php";
       },2000);
     }
   },500);

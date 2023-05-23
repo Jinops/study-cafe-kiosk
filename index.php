@@ -15,16 +15,19 @@
 
 <body>
   <div class="container-sm center">
-    <h2 class="text-center mb-3">산공 스터디카페</h2>
+    <img src="images/logo.png" id="logo">
     <div class="justify-content-center border py-4 px-5 mx-md-3">
       <div class="row">
         <div class="col-5">
           <div class="row">
-            <div class="col-10">
+            <div class="col-8">
             <h2>공지사항</h2>
           </div>
-          <div class="col-2 text-end">
-            <i class="btn bi bi-gear" onclick="window.open('./admin/admin_notice.php')"></i>
+          <div class="col-4 text-end">
+            <div class="btn" onclick="window.open('./admin/admin_notice.php')">
+            <i class="bi bi-gear"></i>
+            관리자 페이지
+          </div>
           </div>
           </div>
           <?php

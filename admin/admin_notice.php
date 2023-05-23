@@ -25,26 +25,31 @@
       <hr />
       <div>
         <div class="text-center">
-        <?php 
+          <?php 
           $mysqli = new mysqli("localhost", "root", "", "jwpark");
           $query = "SELECT * FROM Notice";
           $res = mysqli_query($mysqli, $query);
           
           while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
             $content = $row['Content']; 
-            echo ("<textarea class='form-control my-3' rows='8'>"
+            echo ("<textarea class='form-control my-3' rows='8' name=content'>"
                 .$content.
               "</textarea>");
            }
+           echo "
+          </div>
+            <div class='text-end'>
+              <form action='admin_notice_update.php' method=post>
+                <input type='submit' name='update' class='btn btn-primary' value='저장'></button>
+              </form>
+            </div>
+          </div>
+           "
         ?>
+          <br />
         </div>
-        <div class="text-end">
-          <button class="btn btn-primary">저장</button>
-        </div>
-        <br />
       </div>
     </div>
-  </div>
 
 </body>
 

@@ -1,7 +1,14 @@
 <link rel="stylesheet" href="styles/style.css">
 
 <ul id="menu" class="navbar-nav pt-3">
-  <h5 class="text-center">산공 스터디카페</h5>
+  <div class="mx-3">
+    <a class="nav-link" href="../index.php">
+      <i class="bi bi-arrow-left-square-fill"></i>
+      돌아가기
+    </a>
+    <hr class="my-1" />
+  </div>
+  <img id="logo" src="../images/logo2.png" class="px-lg-4 px-1 my-3">
   <li id="notice" class="p-3">
     <a class="nav-link" href="./admin_notice.php">공지 사항</a>
   </li>
@@ -23,7 +30,7 @@
 </ul>
 
 <script>
-  function setSelectedMenu(menuId){
+  function setSelectedMenu(menuId) {
     menu = document.getElementById(menuId);
     menu.classList.add("selected");
   }
