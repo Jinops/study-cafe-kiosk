@@ -11,3 +11,17 @@
   height: 10%;
   position:absolute;
 }
+
+.nav-link{
+  color: gray;
+}
+.nav-link:hover{
+  color: #212529;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  background-color: #212529;
+  color: white;
+
+}

@@ -3,6 +3,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 5%;
+    border: 2px solid #212529;
 }
 
 label {
@@ -17,4 +21,8 @@ label {
     margin-right: auto;
     width:15%;
     min-width: 150px;
+}
+
+body {
+    background-color: orange;
 }
