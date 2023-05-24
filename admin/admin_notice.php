@@ -30,16 +30,15 @@
           $query = "SELECT * FROM Notice";
           $res = mysqli_query($mysqli, $query);
           
+          echo "<form id='notice' action='admin_notice_update.php' method='post'>";
           while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
             $content = $row['Content']; 
-            echo ("<textarea class='form-control my-3' rows='8' name=content'>"
+            echo ("<textarea name='content' class='form-control my-3' rows='8' name=content'>"
                 .$content.
               "</textarea>");
            }
            echo "
-          </div>
             <div class='text-end'>
-              <form action='admin_notice_update.php' method=post>
                 <input type='submit' name='update' class='btn btn-primary' value='저장'></button>
               </form>
             </div>
