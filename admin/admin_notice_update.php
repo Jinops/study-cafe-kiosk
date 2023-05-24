@@ -24,8 +24,14 @@
       <h3>공지사항</h3>
       <hr />
       <?php
+      $notice_id = $_POST['notice_id'];
       $content = $_POST['content'];
-      echo $content;
+
+      $mysqli = new mysqli("localhost", "root", "", "jwpark");
+      $query = "UPDATE NOTICE SET Content='$content' WHERE Notice_id=$notice_id";
+      # TODO: 따옴표 처리
+      echo $query;
+      $res = mysqli_query($mysqli, $query);
       ?>
       <div>
         
