@@ -39,7 +39,7 @@ $res = mysqli_query($mysqli, $query);
 
 while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
   $content = $row['Content']; 
-  echo ("<textarea class='form-control' rows='8'>"
+  echo ("<textarea class='form-control' rows='8' readonly>"
       .$content.
     "</textarea>");
  }
@@ -67,7 +67,7 @@ while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
         </div>
         <div class="col-3">
           <button type="submit" class="btn btn-dark btn-lg btn-block mt-3" form="form_login"
-            style="width:100%; height:80%" onclick="window.open('./ticket.html')">
+            style="width:100%; height:80%" onclick="window.open('./ticket.php')">
             <i class="bi bi-box-arrow-in-right"></i><br />
             로그인
           </button>
