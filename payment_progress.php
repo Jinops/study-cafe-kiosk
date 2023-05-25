@@ -20,7 +20,7 @@
     $ticket_type=$_GET['ticket_type'];
     $ticket_id=$_GET['ticket_id'];
     $seat_id=$_GET['seat_id'];
-    $payment_progress=$_GET['payment_progress'];
+    $payment_type=$_GET['payment_type'];
   ?>
   <div class="container-sm center">
     <img src="images/logo.png" id="logo">

@@ -29,7 +29,7 @@
           for($i=1;$i<=7;$i++){
             echo"
             <div class='col-4'>
-              <a href='./seat.php?ticket_type=$ticket_type?ticket_id=$i'>
+              <a href='./seat.php?ticket_type=$ticket_type&ticket_id=$i'>
                 <button class='btn btn-dark btn-lg my-1 w-100'>
               <i class='bi bi-clock'></i> 4시간 이용권<br />5,000원</button>
               </a>

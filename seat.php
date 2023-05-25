@@ -40,7 +40,7 @@
       <div class="tab-content text-center border p-5" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
           <div class="room" style="width: 50%; padding-bottom:50%;">
-            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>?ticket_id=<?php echo $ticket_id?>?seat_id=1">
+            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>&ticket_id=<?php echo $ticket_id?>&seat_id=1">
               <button class="seat btn btn-sm btn-outline-dark" style="left:20%; top:5%;">1</button>
               <button class="seat btn btn-sm btn-dark" style="left:20%;top:25%;" disabled>2 (사용중)</button>
               <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:45%;">3</button>
@@ -56,7 +56,7 @@
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
           <div class="room" style="width: 25%; padding-bottom:50%;">
-            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>?ticket_id=<?php echo $ticket_id?>?seat_id=1">
+            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>&ticket_id=<?php echo $ticket_id?>&seat_id=1">
               <button class="seat btn btn-outline-dark" style="left:20%; top:5%;">1</button>
               <button class="seat btn btn-outline-dark" style="left:20%;top:25%;">2</button>
               <button class="seat btn btn-outline-dark" style="left:20%;top:45%;">3</button>
