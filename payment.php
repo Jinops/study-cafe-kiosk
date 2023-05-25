@@ -33,7 +33,9 @@
           </a>
         </div>
         <div class="col text-start">
-          <button class="btn btn-secondary fs-1 btn_ticket_type"><i class="bi bi-cash"></i><br />현금</button>
+          <a href="payment_progress.php?ticket_type=<?php echo $ticket_type?>?ticket_id=<?php echo $ticket_id?>?seat_id=<?php echo $seat_id?>?payment_type=1">
+            <button class="btn btn-secondary fs-1 btn_ticket_type"><i class="bi bi-cash"></i><br />현금</button>
+          </a>
         </div>
       </div>
     </div>

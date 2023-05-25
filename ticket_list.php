@@ -25,32 +25,20 @@
       <h2 class="mb-4 text-center">이용권 선택</h2>
       <hr />
       <div class="row">
-        <div class="col-4">
-          <a href="./seat.php?ticket_type=<?php echo $ticket_type?>?ticket_id=1">
-            <button class="btn btn-dark btn-lg my-1 w-100">
-              <i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-          </a>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark btn-lg my-1 w-100"><i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark btn-lg my-1 w-100"><i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark btn-lg my-1 w-100"><i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark btn-lg my-1 w-100"><i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark btn-lg my-1 w-100"><i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-dark btn-lg my-1 w-100"><i class="bi bi-clock"></i> 4시간 이용권<br />5,000원</button>
-        </div>
-      </div>
+        <?php
+          for($i=1;$i<=7;$i++){
+            echo"
+            <div class='col-4'>
+              <a href='./seat.php?ticket_type=$ticket_type?ticket_id=$i'>
+                <button class='btn btn-dark btn-lg my-1 w-100'>
+              <i class='bi bi-clock'></i> 4시간 이용권<br />5,000원</button>
+              </a>
+            </div>
+      ";
+      }
+      ?>
     </div>
+  </div>
   </div>
 </body>
 

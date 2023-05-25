@@ -42,30 +42,32 @@
           <div class="room" style="width: 50%; padding-bottom:50%;">
             <a href="./payment.php?ticket_type=<?php echo $ticket_type?>?ticket_id=<?php echo $ticket_id?>?seat_id=1">
               <button class="seat btn btn-sm btn-outline-dark" style="left:20%; top:5%;">1</button>
+              <button class="seat btn btn-sm btn-dark" style="left:20%;top:25%;" disabled>2 (사용중)</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:45%;">3</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:65%;">4</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:85%;">5</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:60%; top:5%;">6</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:25%;">7</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:45%;">8</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:65%;">9</button>
+              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:85%;">10</button>
             </a>
-            <button class="seat btn btn-sm btn-dark" style="left:20%;top:25%;" disabled>2 (사용중)</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:45%;">3</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:65%;">4</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:85%;">5</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%; top:5%;">6</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:25%;">7</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:45%;">8</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:65%;">9</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:85%;">10</button>
           </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
           <div class="room" style="width: 25%; padding-bottom:50%;">
-            <button class="seat btn btn-outline-dark" style="left:20%; top:5%;">1</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:25%;">2</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:45%;">3</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:65%;">4</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:85%;">5</button>
-            <button class="seat btn btn-outline-dark" style="left:60%; top:5%;">6</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:25%;">7</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:45%;">8</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:65%;">9</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:85%;">10</button>
+            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>?ticket_id=<?php echo $ticket_id?>?seat_id=1">
+              <button class="seat btn btn-outline-dark" style="left:20%; top:5%;">1</button>
+              <button class="seat btn btn-outline-dark" style="left:20%;top:25%;">2</button>
+              <button class="seat btn btn-outline-dark" style="left:20%;top:45%;">3</button>
+              <button class="seat btn btn-outline-dark" style="left:20%;top:65%;">4</button>
+              <button class="seat btn btn-outline-dark" style="left:20%;top:85%;">5</button>
+              <button class="seat btn btn-outline-dark" style="left:60%; top:5%;">6</button>
+              <button class="seat btn btn-outline-dark" style="left:60%;top:25%;">7</button>
+              <button class="seat btn btn-outline-dark" style="left:60%;top:45%;">8</button>
+              <button class="seat btn btn-outline-dark" style="left:60%;top:65%;">9</button>
+              <button class="seat btn btn-outline-dark" style="left:60%;top:85%;">10</button>
+            </a>
           </div>
         </div>
       </div>
