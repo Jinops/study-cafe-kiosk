@@ -26,26 +26,31 @@
       <div>
         <div class="text-center">
           <?php 
-          $mysqli = new mysqli("localhost", "root", "", "jwpark");
-          $query = "SELECT * FROM Notice";
-          $res = mysqli_query($mysqli, $query);
-          
-          echo "<form id='notice' action='admin_notice_update.php' method='post'>";
-          while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
-            $notice_id = $row['Notice_id']; 
-            $content = $row['Content']; 
-            echo ("<textarea name='content' class='form-control my-3' rows='8' name=content'>"
-                .$content.
-              "</textarea>");
-           }
-           echo "
-            <div class='text-end'>
-                <input type = 'hidden' name = 'notice_id' value ='$notice_id' />
-                <input type='submit' name='update' class='btn btn-primary' value='저장'></button>
-              </form>
+          try{
+            $mysqli = new mysqli("localhost", "root", "", "jwpark");
+            $query = "SELECT * FROM Notice";
+            $res = mysqli_query($mysqli, $query);
+            
+            echo "<form id='notice' action='admin_notice_update.php' method='post'>";
+            while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+              $notice_id = $row['Notice_id']; 
+              $content = $row['Content']; 
+              echo ("<textarea name='content' class='form-control my-3' rows='8' name=content'>"
+                  .$content.
+                "</textarea>");
+            }
+            echo "
+              <div class='text-end'>
+                  <input type = 'hidden' name = 'notice_id' value ='$notice_id' />
+                  <input type='submit' name='update' class='btn btn-primary' value='저장'></button>
+                </form>
+              </div>
             </div>
-          </div>
-           "
+            ";
+          }
+          catch (Exception $e){
+            echo $e;
+          }
         ?>
           <br />
         </div>

@@ -32,18 +32,22 @@
             </div>
           </div>
           <?php
+            try {
+              $mysqli = new mysqli("localhost", "root", "", "jwpark");
+              $query = "SELECT * FROM Notice";
+              $res = mysqli_query($mysqli, $query);
 
-$mysqli = new mysqli("localhost", "root", "", "jwpark");
-$query = "SELECT * FROM Notice";
-$res = mysqli_query($mysqli, $query);
-
-while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
-  $content = $row['Content']; 
-  echo ("<textarea class='form-control' rows='8' readonly>"
-      .$content.
-    "</textarea>");
- }
- ?>
+              while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+                $content = $row['Content']; 
+                echo ("<textarea class='form-control' rows='8' readonly>"
+                    .$content.
+                  "</textarea>");
+              }
+            }
+            catch (Exception $e){
+              echo $e;
+            }
+          ?>
         </div>
         <div class="col-4">
           <form id="form_login">
