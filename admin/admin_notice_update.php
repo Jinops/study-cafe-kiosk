@@ -27,7 +27,8 @@
       $notice_id = $_POST['notice_id'];
       $content = $_POST['content'];
 
-      $mysqli = new mysqli("localhost", "root", "", "jwpark");
+      include "./../common/db.php";
+      $mysqli = connect();
       $query = "UPDATE NOTICE SET Content='$content' WHERE Notice_id=$notice_id";
       # TODO: 따옴표 처리
       echo $query;
