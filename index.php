@@ -33,7 +33,8 @@
           </div>
           <?php
             try {
-              $mysqli = new mysqli("localhost", "root", "", "jwpark");
+              include 'common/db.php';
+              $mysqli = connect();
               $query = "SELECT * FROM Notice";
               $res = mysqli_query($mysqli, $query);
 
