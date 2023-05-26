@@ -29,7 +29,7 @@
 
       include "./../common/db.php";
       $mysqli = connect();
-      $query = "UPDATE NOTICE SET Content='$content' WHERE Notice_id=$notice_id";
+      $query = "UPDATE P_NOTICE SET Content='$content' WHERE Notice_id=$notice_id";
       # TODO: 따옴표 처리
       echo $query;
       $res = mysqli_query($mysqli, $query);

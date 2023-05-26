@@ -35,7 +35,7 @@
             try {
               include 'common/db.php';
               $mysqli = connect();
-              $query = "SELECT * FROM P_Notice";
+              $query = "SELECT * FROM P_NOTICE";
               $res = mysqli_query($mysqli, $query);
 
               while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){

@@ -29,7 +29,7 @@
           try{
             include "./../common/db.php";
             $mysqli = connect();
-            $query = "SELECT * FROM Notice";
+            $query = "SELECT * FROM P_NOTICE";
             $res = mysqli_query($mysqli, $query);
             
             echo "<form id='notice' action='admin_notice_update.php' method='post'>";
