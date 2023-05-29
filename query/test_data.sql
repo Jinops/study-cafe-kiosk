@@ -15,21 +15,21 @@ insert into P_USER
 values (5, '01052345678', '1314', 'Robin', 0);
 
 insert into P_TICKET
-values (1, '시간권', 2000, 120);
+values (1, 'basic', 2000, 120);
 insert into P_TICKET
-values (2, '시간권', 4000, 240);
+values (2, 'basic', 4000, 240);
 insert into P_TICKET
-values (3, '시간권', 6000, 360);
+values (3, 'basic', 6000, 360);
 insert into P_TICKET
-values (4, '시간권', 8000, 480);
+values (4, 'basic', 8000, 480);
 insert into P_TICKET
-values (5, '고정석', 50000, 10080);
+values (5, 'fixed', 50000, 10080);
 insert into P_TICKET
-values (6, '고정석', 100000, 20160);
+values (6, 'fixed', 100000, 20160);
 insert into P_TICKET
-values (7, '고정석', 150000, 30240);
+values (7, 'fixed', 150000, 30240);
 insert into P_TICKET
-values (8, '고정석', 210000, 43200);
+values (8, 'fixed', 210000, 43200);
 
 insert into P_ROOM
 values (1, '1 room', 50, 50);

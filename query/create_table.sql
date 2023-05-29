@@ -16,9 +16,10 @@ Total_payment int null
 
 create table P_TICKET(
 Ticket_id int auto_increment primary key,
-Type varchar(20) not null,
+`Type` varchar(20) not null,
 Price int not null,
-Duration_min int not null
+Duration_min int not null,
+constraint type_check check(Type in('basic', 'fixed'))
 );
 
 create table P_ROOM(

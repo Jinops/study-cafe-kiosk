@@ -23,16 +23,16 @@
       <hr />
       <div class="row">
         <div class="col text-end">
-          <a href="ticket_list.php?ticket_type=1">
+          <a href="ticket_list.php?ticket_type=basic">
             <button class="btn btn-dark fs-1 btn_ticket_type">
               <i class="bi bi-clock"></i><br />시간권
             </button>
           </a>
         </div>
         <div class="col text-start">
-          <a href="ticket_list.php?ticket_type=2">
+          <a href="ticket_list.php?ticket_type=fixed">
             <button class="btn btn-dark fs-1 btn_ticket_type">
-              <i class="bi bi-calendar-week"></i><br />정기권
+              <i class="bi bi-calendar-week"></i><br />고정석
             </button>
           </a>
         </div>

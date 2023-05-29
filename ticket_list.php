@@ -25,20 +25,34 @@
       <h2 class="mb-4 text-center">이용권 선택</h2>
       <hr />
       <div class="row">
-        <?php
-          for($i=1;$i<=7;$i++){
-            echo"
-            <div class='col-4'>
-              <a href='./seat.php?ticket_type=$ticket_type&ticket_id=$i'>
-                <button class='btn btn-dark btn-lg my-1 w-100'>
-              <i class='bi bi-clock'></i> 4시간 이용권<br />5,000원</button>
-              </a>
-            </div>
-      ";
+      <?php
+      try {
+        include 'common/db.php';
+        $mysqli = connect();
+        $query = "SELECT * FROM P_TICKET WHERE Type='$ticket_type';";
+        $res = mysqli_query($mysqli, $query);
+
+        while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+          $ticket_id = $row['Ticket_id'];
+          $price = number_format($row['Price']); 
+          $duration = $row['Duration_min']/60.0;
+          
+          echo"
+          <div class='col-4'>
+            <a href='./seat.php?ticket_type=$ticket_type&ticket_id=$ticket_id'>
+              <button class='btn btn-dark btn-lg my-1 w-100'>
+            <i class='bi bi-clock'></i> ".$duration."시간 이용권<br />".$price."원</button>
+            </a>
+          </div>
+          ";
+        }
+      } catch (Exception $e){
+        echo $query;
+        echo $e;
       }
       ?>
+      </div>
     </div>
-  </div>
   </div>
 </body>
 

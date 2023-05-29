@@ -32,22 +32,22 @@
             </div>
           </div>
           <?php
-            try {
-              include 'common/db.php';
-              $mysqli = connect();
-              $query = "SELECT * FROM P_NOTICE";
-              $res = mysqli_query($mysqli, $query);
+          try {
+            include 'common/db.php';
+            $mysqli = connect();
+            $query = "SELECT * FROM P_NOTICE;";
+            $res = mysqli_query($mysqli, $query);
 
-              while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
-                $content = $row['Content']; 
-                echo ("<textarea class='form-control' rows='8' readonly>"
-                    .$content.
-                  "</textarea>");
-              }
+            while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+              $content = $row['Content']; 
+              echo ("<textarea class='form-control' rows='8' readonly>"
+                  .$content.
+                "</textarea>");
             }
-            catch (Exception $e){
-              echo $e;
-            }
+          } catch (Exception $e){
+            echo $query;
+            echo $e;
+          }
           ?>
         </div>
         <div class="col-4">
