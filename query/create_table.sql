@@ -9,8 +9,8 @@ Content text null
 create table P_USER(
 User_id int auto_increment primary key,
 Phone char(11) not null,
-Password varchar(4) not null,
-Name varchar(10) not null,
+`Password` varchar(4) not null,
+`Name` varchar(10) not null,
 Total_payment int null
 );
 
@@ -23,9 +23,11 @@ Duration_min int not null
 
 create table P_ROOM(
 Room_id int auto_increment primary key,
-Name varchar(20) not null,
+`Name` varchar(20) not null,
 Width int not null,
-Height int not null
+Height int not null,
+constraint Width_ck check(Width>0 and Width<=100),
+constraint Height_ck check(Height>0 and Height<=100)
 );
 
 create table P_SEAT( 
@@ -36,7 +38,9 @@ Height int not null,
 X int not null,
 Y int not null,
 constraint seat_FK foreign key(Room_id)
-references P_ROOM(Room_id)
+references P_ROOM(Room_Id),
+constraint X_ck check(X>=0 and X<=100),
+constraint Y_ck check(Y>=0 and Y<=100)
 );
 
 create table P_RESERVE(
