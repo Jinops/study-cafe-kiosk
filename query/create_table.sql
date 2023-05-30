@@ -11,7 +11,7 @@ User_id int auto_increment primary key,
 Phone char(11) not null,
 `Password` varchar(4) not null,
 `Name` varchar(10) not null,
-Total_payment int null default 0,
+Total_payment int null default 0
 );
 
 create table P_TICKET(
