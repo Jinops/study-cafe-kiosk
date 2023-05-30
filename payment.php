@@ -1,3 +1,10 @@
+<?php
+require 'common/login_check.php';
+$ticket_type=$_GET['ticket_type'];
+$ticket_id=$_GET['ticket_id'];
+$seat_id=$_GET['seat_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,11 +23,6 @@
 </head>
 
 <body>
-  <?php
-    $ticket_type=$_GET['ticket_type'];
-    $ticket_id=$_GET['ticket_id'];
-    $seat_id=$_GET['seat_id'];
-  ?>
   <div class="container-sm center">
     <img src="images/logo.png" id="logo">
     <div class="justify-content-center border py-4 px-5 mx-md-3">
@@ -29,8 +31,7 @@
       <div class="row">
         <div class="col text-end">
           <?php
-          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&
-            seat_id=$seat_id";
+          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&seat_id=$seat_id";
           ?>
           <a href="payment_progress.php?<?php echo $data?>&payment_type=card">
             <button class="btn btn-dark fs-1 btn_ticket_type"><i class="bi bi-credit-card"></i><br />신용카드</button>

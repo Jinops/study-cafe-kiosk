@@ -1,3 +1,8 @@
+<?php
+require 'common/login_check.php';
+require 'common/db.php';
+$ticket_type=$_GET['ticket_type'];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,9 +21,6 @@
 </head>
 
 <body>
-  <?php
-  $ticket_type=$_GET['ticket_type']
-  ?>
   <div class="container-sm center">
     <img src="images/logo.png" id="logo">
     <div class="justify-content-center border py-4 px-5 mx-md-3">
@@ -27,17 +29,17 @@
       <div class="row">
       <?php
       try {
-        include 'common/db.php';
         $mysqli = connect();
         $query = "SELECT * FROM P_TICKET WHERE Type='$ticket_type';";
         $res = mysqli_query($mysqli, $query);
+        $rows = $res->fetch_all(MYSQLI_ASSOC);
 
-        while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+        foreach($rows as $row){
           $ticket_id = $row['Ticket_id'];
           $price = number_format($row['Price']); 
           $duration = $row['Duration_min']/60.0;
           
-          echo"
+          echo "
           <div class='col-4'>
             <a href='./seat.php?ticket_type=$ticket_type&ticket_id=$ticket_id'>
               <button class='btn btn-dark btn-lg my-1 w-100'>

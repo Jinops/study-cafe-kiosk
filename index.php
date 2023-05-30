@@ -1,3 +1,7 @@
+<?php
+  include 'common/db.php';
+  session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -33,16 +37,14 @@
           </div>
           <?php
           try {
-            include 'common/db.php';
             $mysqli = connect();
             $query = "SELECT * FROM P_NOTICE;";
             $res = mysqli_query($mysqli, $query);
+            $rows = $res->fetch_all(MYSQLI_ASSOC);
 
-            while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
+            foreach($rows as $row){
               $content = $row['Content']; 
-              echo ("<textarea class='form-control' rows='8' readonly>"
-                  .$content.
-                "</textarea>");
+              echo "<textarea class='form-control' rows='8' readonly>$content</textarea>";
             }
           } catch (Exception $e){
             echo $query;
@@ -51,16 +53,16 @@
           ?>
         </div>
         <div class="col-4">
-          <form id="form_login">
+          <form id="form_login" method="post" action="./common/login.php" >
             <label for="input_phone" class="col-form-label col-form-label-lg">전화번호</label>
             <div class="input-group input-group-lg">
               <div class="input-group-text"><i class="bi bi-phone"></i></div>
-              <input id="input_phone input-xl" class="form-control" placeholder="하이픈(-) 빼고 입력" inputmode="numeric">
+              <input name="phone" id="input_phone input-xl" class="form-control" placeholder="하이픈(-) 빼고 입력" inputmode="numeric">
             </div>
             <label for="input_password" class="col-form-label col-form-label-lg">비밀번호</label>
             <div class="input-group input-group-lg">
               <div class="input-group-text"><i class="bi bi-lock"></i></div>
-              <input id="input_password" class="form-control form-control" type="password" placeholder="4자리 숫자"
+              <input name="password" id="input_password" class="form-control form-control" type="password" placeholder="4자리 숫자"
                 inputmode="numeric" maxlength="4">
             </div>
             <br />
@@ -72,7 +74,7 @@
         </div>
         <div class="col-3">
           <button type="submit" class="btn btn-dark btn-lg btn-block mt-3" form="form_login"
-            style="width:100%; height:80%" onclick="window.open('./ticket.php')">
+            style="width:100%; height:80%">
             <i class="bi bi-box-arrow-in-right"></i><br />
             로그인
           </button>

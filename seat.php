@@ -1,3 +1,9 @@
+<?php
+require 'common/login_check.php';
+require 'common/db.php';
+$ticket_type=$_GET['ticket_type'];
+$ticket_id=$_GET['ticket_id'];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,10 +22,6 @@
 </head>
 
 <body>
-  <?php
-  $ticket_type=$_GET['ticket_type'];
-  $ticket_id=$_GET['ticket_id'];
-  ?>
   <div class="container-sm center">
     <img src="images/logo.png" id="logo">
     <div class="justify-content-center border py-4 px-5 m-5">
@@ -29,7 +31,6 @@
       <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
       <?php
       try {
-        include 'common/db.php';
         $mysqli = connect();
         $query = "SELECT DISTINCT * FROM P_ROOM;";  
         $res = mysqli_query($mysqli, $query);

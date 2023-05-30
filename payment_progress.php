@@ -1,3 +1,14 @@
+<?php
+require 'common/login_check.php';
+include 'common/db.php';
+$user_id=$_SESSION['user_id'];
+$ticket_type=$_GET['ticket_type'];
+$ticket_id=$_GET['ticket_id'];
+$seat_id=$_GET['seat_id'];
+$payment_type=$_GET['payment_type'];
+$ticket_price=$_GET['ticket_price'];
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,14 +27,6 @@
 </head>
 
 <body>
-  <?php
-    $user_id=1; # TODO: apply user_id
-    $ticket_type=$_GET['ticket_type'];
-    $ticket_id=$_GET['ticket_id'];
-    $seat_id=$_GET['seat_id'];
-    $payment_type=$_GET['payment_type'];
-    $ticket_price=$_GET['ticket_price'];
-  ?>
   <div class="container-sm center">
     <img src="images/logo.png" id="logo">
     <div class="justify-content-center border py-4 px-5 mx-md-3">
@@ -45,7 +48,6 @@
         $dateTime = date("y-m-d H-i-s");
 
         try {
-          include 'common/db.php';
           $mysqli = connect();
           $query_price = "SELECT Price FROM P_TICKET WHERE Ticket_id=$ticket_id;";
           $res = mysqli_query($mysqli, $query_price);
@@ -62,6 +64,7 @@
           echo $query."<br/>";
           echo $e."<br/><br/>";
         }
+        session_destroy();
         ?>
         <p>잠시 후 초기화면으로 돌아갑니다.</p>
       </div>

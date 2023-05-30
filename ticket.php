@@ -1,3 +1,6 @@
+<?php
+require 'common/login_check.php';
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
