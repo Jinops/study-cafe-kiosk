@@ -53,7 +53,7 @@
           ?>
         </div>
         <div class="col-4">
-          <form id="form_login" method="post" action="./common/login.php" >
+          <form id="form_login" method="post" action="./common/login.php">
             <label for="input_phone" class="col-form-label col-form-label-lg">전화번호</label>
             <div class="input-group input-group-lg">
               <div class="input-group-text"><i class="bi bi-phone"></i></div>
@@ -62,15 +62,15 @@
             <label for="input_password" class="col-form-label col-form-label-lg">비밀번호</label>
             <div class="input-group input-group-lg">
               <div class="input-group-text"><i class="bi bi-lock"></i></div>
-              <input name="password" id="input_password" class="form-control form-control" type="password" placeholder="4자리 숫자"
+              <input name="password" id="input_password" class="form-control" type="password" placeholder="4자리 숫자"
                 inputmode="numeric" maxlength="4">
             </div>
+          </form>
             <br />
             <p class="text-end">
               서비스 이용을 위해 회원가입이 필요합니다.
-              <button class="btn btn-secondary btn-block">회원가입</button>
+              <button class="btn btn-secondary btn-block" data-bs-toggle="modal" data-bs-target="#registerModal">회원가입</button>
             </p>
-          </form>
         </div>
         <div class="col-3">
           <button type="submit" class="btn btn-dark btn-lg btn-block mt-3" form="form_login"
@@ -82,6 +82,32 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">회원가입</h1>
+        </div>
+        <div class="modal-body">
+          <form id="form_register" method="post" action="./common/register.php" >
+            <label for="r_input_name" class="col-form-label">이름</label>
+            <input name="name" id="r_input_phone" class="form-control" required>
+            <label for="r_input_phone" class="col-form-label">전화번호</label>
+            <input name="phone" id="r_input_phone" class="form-control" placeholder="하이픈(-) 빼고 입력" inputmode="numeric" required>
+            <label for="r_input_password" class="col-form-label">비밀번호</label>
+            <input name="password" id="r_input_password" class="form-control" type="password" placeholder="4자리 숫자" inputmode="numeric" maxlength="4" required>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" form="form_register">가입</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

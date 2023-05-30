@@ -1,11 +1,10 @@
 <?php
-session_start();
+include '../common/db.php';
 
 $phone = $_POST['phone'];
 $password = $_POST['password'];
 
 try {
-  include '../common/db.php';
   $mysqli = connect();
   $query = "SELECT * FROM P_USER WHERE Phone='$phone' AND Password='$password';";  
   $res = mysqli_query($mysqli, $query);
@@ -20,6 +19,7 @@ try {
     </script>
     ";
   } else{
+    session_start();
     $_SESSION['user_id'] = $row['User_id'];
     $_SESSION['name'] = $row['Name'];
     echo "<script>location.replace('../ticket.php');</script>";
