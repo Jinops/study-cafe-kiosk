@@ -17,10 +17,12 @@
 
 <body>
   <?php
+    $user_id=1; # TODO: apply user_id
     $ticket_type=$_GET['ticket_type'];
     $ticket_id=$_GET['ticket_id'];
     $seat_id=$_GET['seat_id'];
     $payment_type=$_GET['payment_type'];
+    $ticket_price=$_GET['ticket_price'];
   ?>
   <div class="container-sm center">
     <img src="images/logo.png" id="logo">
@@ -40,13 +42,17 @@
       <div id="step2" class="text-center" style="display:none">
         <?php
         date_default_timezone_set("Asia/Seoul");
-        $date = date("y-m-d H-i-s");
-        
+        $dateTime = date("y-m-d H-i-s");
+
         try {
           include 'common/db.php';
           $mysqli = connect();
-          $query = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type)
-          VALUES(999, $ticket_id, 999, $date, $ticket_type)";  
+          $query_price = "SELECT Price FROM P_TICKET WHERE Ticket_id=$ticket_id;";
+          $res = mysqli_query($mysqli, $query_price);
+          $price = $res->fetch_all(MYSQLI_ASSOC)[0]['Price'];
+
+          $query = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type) 
+          VALUES($user_id, $ticket_id, $price, '$dateTime', '$payment_type')";  
           $res = mysqli_query($mysqli, $query);
 
           echo "<h2>결제 완료</h2>";

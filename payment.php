@@ -29,7 +29,8 @@
       <div class="row">
         <div class="col text-end">
           <?php
-          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&seat_id=$seat_id";
+          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&
+            seat_id=$seat_id";
           ?>
           <a href="payment_progress.php?<?php echo $data?>&payment_type=card">
             <button class="btn btn-dark fs-1 btn_ticket_type"><i class="bi bi-credit-card"></i><br />신용카드</button>
