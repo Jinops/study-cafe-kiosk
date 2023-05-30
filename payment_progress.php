@@ -38,8 +38,25 @@
         </div>
       </div>
       <div id="step2" class="text-center" style="display:none">
-        <h2>결제 완료</h2>
-        <i class="bi bi-check text-warning h1"></i>
+        <?php
+        date_default_timezone_set("Asia/Seoul");
+        $date = date("y-m-d H-i-s");
+        
+        try {
+          include 'common/db.php';
+          $mysqli = connect();
+          $query = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type)
+          VALUES(999, $ticket_id, 999, $date, $ticket_type)";  
+          $res = mysqli_query($mysqli, $query);
+
+          echo "<h2>결제 완료</h2>";
+          echo "<i class='bi bi-check text-warning h1'></i>";
+        } catch (Exception $e){
+          echo "<h2>결제 실패</h2>";
+          echo $query."<br/>";
+          echo $e."<br/><br/>";
+        }
+        ?>
         <p>잠시 후 초기화면으로 돌아갑니다.</p>
       </div>
     </div>

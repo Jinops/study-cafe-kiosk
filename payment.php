@@ -28,12 +28,15 @@
       <hr />
       <div class="row">
         <div class="col text-end">
-          <a href="payment_progress.php?ticket_type=<?php echo $ticket_type?>&ticket_id=<?php echo $ticket_id?>&seat_id=<?php echo $seat_id?>&payment_type=1">
+          <?php
+          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&seat_id=$seat_id";
+          ?>
+          <a href="payment_progress.php?<?php echo $data?>&payment_type=card">
             <button class="btn btn-dark fs-1 btn_ticket_type"><i class="bi bi-credit-card"></i><br />신용카드</button>
           </a>
         </div>
         <div class="col text-start">
-          <a href="payment_progress.php?ticket_type=<?php echo $ticket_type?>&ticket_id=<?php echo $ticket_id?>&seat_id=<?php echo $seat_id?>&payment_type=2">
+          <a href="payment_progress.php?<?php echo $data?>&payment_type=cash">
             <button class="btn btn-secondary fs-1 btn_ticket_type"><i class="bi bi-cash"></i><br />현금</button>
           </a>
         </div>
