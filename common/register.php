@@ -7,7 +7,7 @@ $password = $_POST['password'];
 
 try {
   $mysqli = connect();
-  $query ="SELECT count(*) as count FROM P_USER WHERE Phone='$phone';";
+  $query ="SELECT * FROM P_USER WHERE Phone='$phone';";
   $res = mysqli_query($mysqli, $query);
   $count = mysqli_num_rows($res);
   
