@@ -57,25 +57,33 @@ values (9, 1, 20, 10, 40, 35);
 insert into P_SEAT
 values (10, 1, 20, 10, 40, 45);
 insert into P_SEAT
-values (11, 2, 20, 10, 20, 5);
+values (11, 1, 20, 10, 40, 70);
 insert into P_SEAT
-values (12, 2, 20, 10, 20, 15);
+values (12, 1, 20, 10, 40, 80);
 insert into P_SEAT
-values (13, 2, 20, 10, 20, 25);
+values (13, 1, 20, 10, 60, 70);
 insert into P_SEAT
-values (14, 2, 20, 10, 20, 35);
+values (14, 1, 20, 10, 60, 80);
 insert into P_SEAT
-values (15, 2, 20, 10, 20, 45);
+values (15, 2, 20, 10, 20, 5);
 insert into P_SEAT
-values (16, 2, 20, 10, 40, 5);
+values (16, 2, 20, 10, 20, 15);
 insert into P_SEAT
-values (17, 2, 20, 10, 40, 15);
+values (17, 2, 20, 10, 20, 25);
 insert into P_SEAT
-values (18, 2, 20, 10, 40, 25);
+values (18, 2, 20, 10, 20, 35);
 insert into P_SEAT
-values (19, 2, 20, 10, 40, 35);
+values (19, 2, 20, 10, 20, 45);
 insert into P_SEAT
-values (20, 2, 20, 10, 40, 45);
+values (20, 2, 20, 10, 40, 5);
+insert into P_SEAT
+values (21, 2, 20, 10, 40, 15);
+insert into P_SEAT
+values (22, 2, 20, 10, 40, 25);
+insert into P_SEAT
+values (23, 2, 20, 10, 40, 35);
+insert into P_SEAT
+values (24, 2, 20, 10, 40, 45);
 
 insert into P_RESERVE
 values (1, 1, 1, 1, 1, '2023-05-28 19:31:17', '2023-05-28 21:31:17');

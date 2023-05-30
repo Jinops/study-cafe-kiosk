@@ -27,49 +27,73 @@
       <hr />
       <!-- controller -->
       <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-        <li class="col nav-item" role="presentation">
-          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-            type="button" role="tab" aria-controls="pills-home" aria-selected="true">1열</button>
-        </li>
-        <li class="col nav-item" role="presentation">
-          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-            type="button" role="tab" aria-controls="pills-profile" aria-selected="false">2열</button>
-        </li>
+      <?php
+      try {
+        include 'common/db.php';
+        $mysqli = connect();
+        $query = "SELECT DISTINCT * FROM P_ROOM;";  
+        $res = mysqli_query($mysqli, $query);
+        $rows_room = $res->fetch_all(MYSQLI_ASSOC);
+
+        $active='active';
+        foreach ($rows_room as $row){
+          $room_id = $row['Room_id'];
+          $name = $row['Name'];
+          echo "
+          <li class='col nav-item $active' role='presentation'>
+            <button class='nav-link $active' data-bs-toggle='pill' data-bs-target='#pills-$room_id'
+            type='button' role='tab' aria-controls='pills-$room_id'>$name</button>
+          </li>
+          ";
+          $active='';
+        }
+      } catch (Exception $e){
+        echo $query;
+        echo $e;
+      }
+      ?>
       </ul>
+
       <!-- content -->
       <div class="tab-content text-center border p-5" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
-          <div class="room" style="width: 50%; padding-bottom:50%;">
-            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>&ticket_id=<?php echo $ticket_id?>&seat_id=1">
-              <button class="seat btn btn-sm btn-outline-dark" style="left:20%; top:5%;">1</button>
-              <button class="seat btn btn-sm btn-dark" style="left:20%;top:25%;" disabled>2 (사용중)</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:45%;">3</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:65%;">4</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:85%;">5</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:60%; top:5%;">6</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:25%;">7</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:45%;">8</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:65%;">9</button>
-              <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:85%;">10</button>
-            </a>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <div class="room" style="width: 25%; padding-bottom:50%;">
-            <a href="./payment.php?ticket_type=<?php echo $ticket_type?>&ticket_id=<?php echo $ticket_id?>&seat_id=1">
-              <button class="seat btn btn-outline-dark" style="left:20%; top:5%;">1</button>
-              <button class="seat btn btn-outline-dark" style="left:20%;top:25%;">2</button>
-              <button class="seat btn btn-outline-dark" style="left:20%;top:45%;">3</button>
-              <button class="seat btn btn-outline-dark" style="left:20%;top:65%;">4</button>
-              <button class="seat btn btn-outline-dark" style="left:20%;top:85%;">5</button>
-              <button class="seat btn btn-outline-dark" style="left:60%; top:5%;">6</button>
-              <button class="seat btn btn-outline-dark" style="left:60%;top:25%;">7</button>
-              <button class="seat btn btn-outline-dark" style="left:60%;top:45%;">8</button>
-              <button class="seat btn btn-outline-dark" style="left:60%;top:65%;">9</button>
-              <button class="seat btn btn-outline-dark" style="left:60%;top:85%;">10</button>
-            </a>
-          </div>
-        </div>
+        <?php
+        $active='active';
+          foreach ($rows_room as $row_room){
+            $room_id = $row_room['Room_id'];
+            $room_width = $row_room['Width'];
+            $room_height = $row_room['Height'];
+            
+            try {
+            $query = "SELECT * FROM P_SEAT WHERE Room_id=$room_id;";  
+            $res = mysqli_query($mysqli, $query);
+            $rows_seat = $res->fetch_all(MYSQLI_ASSOC);
+            echo "<div class='tab-pane fade show $active' id='pills-$room_id' role='tabpanel'>
+            <div class='room' style='width: $room_width%; padding-bottom:$room_height%;'>";
+            
+            foreach ($rows_seat as $row){
+              $seat_id = $row['Seat_id'];
+              $width = $row['Width'];
+              $height = $row['Height'];
+              $x = $row['X'];
+              $y = $row['Y'];
+              $style = "width:$width%; height:$height%; left:$x%; top:$y%;";
+
+              echo "
+                <a href='./payment.php?ticket_type=$ticket_type&ticket_id=$ticket_id&seat_id=$seat_id'>
+                <button class='seat btn btn-sm btn-outline-dark' style='$style'>$seat_id</button>
+                </a>
+                ";
+            }
+            echo "</div>";
+            echo "</div>";
+            
+            $active = '';
+            } catch(Exception $e){
+              echo $query;
+              echo $e;
+            }
+          }
+        ?>
       </div>
       <!-- -->
     </div>
