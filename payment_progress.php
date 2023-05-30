@@ -53,9 +53,12 @@ $ticket_price=$_GET['ticket_price'];
           $res = mysqli_query($mysqli, $query_price);
           $price = $res->fetch_all(MYSQLI_ASSOC)[0]['Price'];
 
-          $query = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type) 
+          $query_payment = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type) 
           VALUES($user_id, $ticket_id, $price, '$dateTime', '$payment_type')";  
-          $res = mysqli_query($mysqli, $query);
+          $res = mysqli_query($mysqli, $query_payment);
+
+          $query_user = "UPDATE P_USER SET Total_payment=Total_payment+$price WHERE User_id=$user_id;";
+          $res = mysqli_query($mysqli, $query_user);
 
           echo "<h2>결제 완료</h2>";
           echo "<i class='bi bi-check text-warning h1'></i>";
