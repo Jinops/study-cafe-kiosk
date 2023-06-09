@@ -1,6 +1,8 @@
 <?php
 require 'common/login_check.php';
 require 'common/db.php';
+
+$reserve_id=$_GET['reserve_id'];
 $reserve_id=$_GET['reserve_id'];
 ?>
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ $reserve_id=$_GET['reserve_id'];
       <?php
       try {
         $mysqli = connect();
-        $query = "SELECT * FROM P_RESERVE WHERE Reserve_id=$reserve_id;";
+        $query = "SELECT * FROM P_RESERVE WHERE Reserve_id=$reserve_id And User_id=$user_id;";
         $res = mysqli_query($mysqli, $query);
         $rows = $res->fetch_all(MYSQLI_ASSOC);
         $row = $rows[0];

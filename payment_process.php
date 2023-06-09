@@ -1,9 +1,10 @@
 <?php
 require 'common/login_check.php';
 include 'common/db.php';
-$user_id=$_SESSION['user_id'];
+
 $ticket_type=$_GET['ticket_type'];
 $ticket_id=$_GET['ticket_id'];
+$room_id=$_GET['room_id'];
 $seat_id=$_GET['seat_id'];
 $payment_type=$_GET['payment_type'];
 $ticket_price=$_GET['ticket_price'];
@@ -49,14 +50,26 @@ $ticket_price=$_GET['ticket_price'];
 
         try {
           $mysqli = connect();
-          $query_price = "SELECT Price FROM P_TICKET WHERE Ticket_id=$ticket_id;";
-          $res = mysqli_query($mysqli, $query_price);
-          $price = $res->fetch_all(MYSQLI_ASSOC)[0]['Price'];
+          $query_ticket = "SELECT Price, Duration_min FROM P_TICKET WHERE Ticket_id=$ticket_id;";
+          $res = mysqli_query($mysqli, $query_ticket);
+          $rows_ticket = $res->fetch_all(MYSQLI_ASSOC);
+          $price = $rows_ticket[0]['Price'];
+          $duration_min = $rows_ticket[0]['Duration_min'];
 
+          $endTime = date("y-m-d H:i:s",strtotime("$currentTime + $duration_min minutes"));
+
+          # payment
           $query_payment = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type) 
           VALUES($user_id, $ticket_id, $price, '$currentTime', '$payment_type')";  
           $res = mysqli_query($mysqli, $query_payment);
 
+          # reservation
+          $query_reserve = "INSERT INTO P_RESERVE (User_id, Room_id, Seat_id, Ticket_id, Start_time, End_time) 
+          VALUES($user_id, $room_id, $seat_id, $ticket_id, '$currentTime', '$endTime')";  
+          echo $query_reserve;
+          $res = mysqli_query($mysqli, $query_reserve);
+
+          # user
           $query_user = "UPDATE P_USER SET Total_payment=Total_payment+$price WHERE User_id=$user_id;";
           $res = mysqli_query($mysqli, $query_user);
 
@@ -64,7 +77,9 @@ $ticket_price=$_GET['ticket_price'];
           echo "<i class='bi bi-check text-warning h1'></i>";
         } catch (Exception $e){
           echo "<h2>결제 실패</h2>";
-          echo $query."<br/>";
+          echo $query_ticket."<br/>";
+          echo $query_payment."<br/>";
+          echo $query_reserve."<br/>";
           echo $e."<br/><br/>";
         }
         session_destroy();

@@ -2,6 +2,7 @@
 require 'common/login_check.php';
 $ticket_type=$_GET['ticket_type'];
 $ticket_id=$_GET['ticket_id'];
+$room_id=$_GET['room_id'];
 $seat_id=$_GET['seat_id'];
 ?>
 
@@ -31,14 +32,14 @@ $seat_id=$_GET['seat_id'];
       <div class="row">
         <div class="col text-end">
           <?php
-          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&seat_id=$seat_id";
+          $data="ticket_type=$ticket_type&ticket_id=$ticket_id&room_id=$room_id&seat_id=$seat_id";
           ?>
-          <a href="payment_progress.php?<?php echo $data?>&payment_type=card">
+          <a href="payment_process.php?<?php echo $data?>&payment_type=card">
             <button class="btn btn-dark fs-1 btn_ticket_type"><i class="bi bi-credit-card"></i><br />신용카드</button>
           </a>
         </div>
         <div class="col text-start">
-          <a href="payment_progress.php?<?php echo $data?>&payment_type=cash">
+          <a href="payment_process.php?<?php echo $data?>&payment_type=cash">
             <button class="btn btn-secondary fs-1 btn_ticket_type"><i class="bi bi-cash"></i><br />현금</button>
           </a>
         </div>

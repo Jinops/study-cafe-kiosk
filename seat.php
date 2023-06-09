@@ -80,7 +80,7 @@ $ticket_id=$_GET['ticket_id'];
               $style = "width:$width%; height:$height%; left:$x%; top:$y%;";
 
               echo "
-                <a href='./payment.php?ticket_type=$ticket_type&ticket_id=$ticket_id&seat_id=$seat_id'>
+                <a href='./payment.php?ticket_type=$ticket_type&ticket_id=$ticket_id&room_id=$room_id&seat_id=$seat_id'>
                 <button class='seat btn btn-sm btn-outline-dark' style='$style'>$seat_id</button>
                 </a>
                 ";
