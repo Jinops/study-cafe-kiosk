@@ -6,6 +6,8 @@ $name = $_POST['name'];
 $width = $_POST['width'];
 $height = $_POST['height'];
 
+$name = str_replace("'", '', $name);
+
 try {
   $mysqli = connect();
   $query = "UPDATE P_ROOM SET Name='$name', Width=$width, Height=$height WHERE Room_id=$room_id;";  

@@ -32,7 +32,7 @@
             $query = "SELECT * FROM P_NOTICE";
             $res = mysqli_query($mysqli, $query);
             
-            echo "<form id='notice' action='admin_notice_update.php' method='post'>";
+            echo "<form id='notice' action='edit/admin_notice_edit.php' method='post'>";
             while ($row = mysqli_fetch_array($res, MYSQLI_ASSOC)){
               $notice_id = $row['Notice_id']; 
               $content = $row['Content']; 
