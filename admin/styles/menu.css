@@ -1,0 +1,14 @@
+body {
+  height: 100%;
+}
+#menu {
+  background-color: black;
+  min-height: 100vh;
+  height: 100%;
+  color: white;
+}
+
+.selected {
+  background-color: white;
+  color:black;
+}

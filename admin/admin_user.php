@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- for bootstrap icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
@@ -32,7 +33,6 @@
             <th scope="col">Name</th>
             <th scope="col">Total_payment</th>
             <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -48,16 +48,19 @@
             $name = $row['Name'];
             $total_payment = $row['Total_payment'];
 
+            $total_payment_fit = number_format($total_payment).'원';
+
             echo"
-            <tr>
-            <td>$user_id</td>
-            <td>$phone</td>
-            <td>$name</td>
-            <td>$total_payment</td>
-            <td><button type='button' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
-                data-bs-whatever='@m1'>Edit</button></td>
-            <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal' data-bs-whatever='@m1'>Delete</button></td>
-            </tr>
+            <form method='post' action='./edit/admin_user_edit.php'>
+              <tr>
+                <td><input name='user_id' value='$user_id' readonly></td>
+                <td><input name='phone' maxlength=11 value='$phone'></td>
+                <td><input name='name' value='$name'></td>
+                <td><input value='$total_payment_fit' readonly></td>
+                <td><input type='submit' value='Edit' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                    data-bs-whatever='@m1'></td>
+              </tr>
+            </form>
             ";
           }
           ?>
@@ -79,8 +82,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary">Save</button>
           </div>
         </div>
       </div>
@@ -96,8 +99,8 @@
             Are you sure?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>

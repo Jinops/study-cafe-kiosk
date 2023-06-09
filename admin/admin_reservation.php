@@ -27,37 +27,56 @@
       <table class="table table-bordered table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">Res_id</th>
+            <th scope="col">Reserve_id</th>
             <th scope="col">User_id</th>
             <th scope="col">Room_id</th>
             <th scope="col">Seat_id</th>
+            <th scope="col">Ticket_id</th>
             <th scope="col">Start_time</th>
             <th scope="col">End_time</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
           <?php
+          date_default_timezone_set("Asia/Seoul");
+          $currentTime = date("y-m-d H:i:s");
+
           $mysqli = connect();
           $query = "SELECT * FROM P_RESERVE;";
           $res = mysqli_query($mysqli, $query);
           $rows = $res->fetch_all(MYSQLI_ASSOC);
 
           foreach($rows as $row){
-            $room_id = $row['Room_id'];
+            $reserve_id = $row['Reserve_id'];
             $user_id = $row['User_id'];
+            $room_id = $row['Room_id'];
             $seat_id = $row['Seat_id'];
             $ticket_id = $row['Ticket_id'];
             $start_time = $row['Start_time'];
             $end_time = $row['End_time'];
 
+            $action = '';
+            if(strtotime($currentTime) < strtotime($end_time)){
+              $action = "
+              <a href='edit/admin_reservation_leave.php?reserve_id=$reserve_id'>
+              <button class='btn btn-danger'>강제퇴실</button>
+              </a>
+              ";
+            } else{
+              $action = "퇴실 완료";
+            }
+
             echo "
             <tr>
-              <td>$room_id</td>
+              <td>$reserve_id</td>
               <td>$user_id</td>
+              <td>$room_id</td>
               <td>$seat_id</td>
               <td>$ticket_id</td>
               <td>$start_time</td>
               <td>$end_time</td>
+              <td>$action</td>
             </tr>
             ";
           }

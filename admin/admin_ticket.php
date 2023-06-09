@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- for bootstrap icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
@@ -34,6 +35,7 @@
             <th scope="col">Ticket_type</th>
             <th scope="col">Ticket_price</th>
             <th scope="col">Duration_min</th>
+            <th scope="col">Duration (Converted)</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
@@ -51,30 +53,31 @@
             $price = $row["Price"];
             $duration_min = $row["Duration_min"];
 
-            $price_fit = number_format($price).'원';
             $type_fit = '';
-            $duration_fit = number_format($duration_min).'분';
-            $duration_unit = '';
+            $duration_fit = '';
 
             if($type=='basic'){
               $type_fit = '시간권';
-              $duration_unit = $duration_min/60 .'시간';
+              $duration_fit = $duration_min/60 .'시간';
             }else if($type=='fixed'){
               $type_fit = '정기권';
-              $duration_unit = $duration_min/(60*24) .'일';
+              $duration_fit = $duration_min/(60*24) .'일';
             }
 
             echo "
-            <tr>
-              <td>$ticket_id</td>
-              <td>$type ($type_fit)</td>
-              <td>$price_fit</td>
-              <td>$duration_fit ($duration_unit)</td>
-              <td><button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
-                  data-bs-whatever='@m1'>Edit</button></td>
-              <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'
-                  data-bs-whatever='@m1'>Delete</button></td>
-            </tr>
+            <form method='post' action='./edit/admin_ticket_edit.php'>
+              <tr>
+                <td><input name='ticket_id' value='$ticket_id' readonly></td>
+                <td><input value='$type ($type_fit)' readonly></td>
+                <td><input name='price' type=number value='$price'> 원</td>
+                <td><input name='duration_min' type=number value='$duration_min'> 분</td>
+                <td>$duration_fit</td>
+                <td><button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                    data-bs-whatever='@m1'>Edit</button></td>
+                <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'
+                    data-bs-whatever='@m1'>Delete</button></td>
+              </tr>
+            </form>
             ";
           }
           ?>
@@ -96,8 +99,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Save</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary">Save</button>
         </div>
       </div>
     </div>
@@ -113,8 +116,8 @@
           Are you sure?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>

@@ -103,7 +103,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" form="form_register">가입</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
         </div>
       </div>
     </div>
