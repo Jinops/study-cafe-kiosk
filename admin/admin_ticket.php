@@ -25,9 +25,6 @@
     <div class="col-10 p-5">
       <h3>사용권 관리</h3>
       <hr />
-      <div class="text-end m-3">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Add</button>
-      </div>
       <table class="table table-bordered table-striped table-hover">
         <thead>
           <tr>
@@ -68,15 +65,31 @@
               <tr>
                 <td><input name='ticket_id' value='$ticket_id' readonly></td>
                 <td><input value='$type ($type_fit)' readonly></td>
-                <td><input name='price' type=number value='$price'> 원</td>
-                <td><input name='duration_min' type=number value='$duration_min'> 분</td>
+                <td><input name='price' type=number min=1 value='$price'> 원</td>
+                <td><input name='duration_min' type=number min=1 value='$duration_min'> 분</td>
                 <td>$duration_fit</td>
-                <td><button class='btn btn-info'>Edit</button></td>
+                <td><input type='submit' value='Edit' class='btn btn-info'></td>
               </tr>
             </form>
             ";
           }
           ?>
+          <!-- ADD -->
+          <form method='post' action='./edit/admin_ticket_add.php'>
+            <tr>
+              <td><input name='ticket_id' value='(new)' readonly></td>
+              <td>
+              <select name='type'>
+                <option value="basic">basic(시간권)</option>
+                <option value="fixed">fixed(정기권)</option>
+              </select>  
+              </td>
+              <td><input name='price' type=number min=1 value='$price'> 원</td>
+              <td><input name='duration_min' type=number min=1 value='$duration_min'> 분</td>
+              <td></td>
+              <td><button class='btn btn-primary'>Add</button></td>
+            </tr>
+          </form>
         </tbody>
       </table>
     </div>
