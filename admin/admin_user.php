@@ -26,7 +26,7 @@
       <table class="table table-bordered table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">User_Id</th>
+            <th scope="col">User_id</th>
             <th scope="col">Phone</th>
             <th scope="col">Name</th>
             <th scope="col">Total_payment</th>

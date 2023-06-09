@@ -45,7 +45,7 @@ $ticket_price=$_GET['ticket_price'];
       <div id="step2" class="text-center" style="display:none">
         <?php
         date_default_timezone_set("Asia/Seoul");
-        $dateTime = date("y-m-d H-i-s");
+        $currentTime = date("y-m-d H:i:s");
 
         try {
           $mysqli = connect();
@@ -54,7 +54,7 @@ $ticket_price=$_GET['ticket_price'];
           $price = $res->fetch_all(MYSQLI_ASSOC)[0]['Price'];
 
           $query_payment = "INSERT INTO P_PAYMENT (User_id, Ticket_id, Price, Time, Type) 
-          VALUES($user_id, $ticket_id, $price, '$dateTime', '$payment_type')";  
+          VALUES($user_id, $ticket_id, $price, '$currentTime', '$payment_type')";  
           $res = mysqli_query($mysqli, $query_payment);
 
           $query_user = "UPDATE P_USER SET Total_payment=Total_payment+$price WHERE User_id=$user_id;";

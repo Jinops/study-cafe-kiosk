@@ -39,13 +39,13 @@ Height int not null,
 X int not null,
 Y int not null,
 constraint seat_FK foreign key(Room_id)
-references P_ROOM(Room_Id),
+references P_ROOM(Room_id),
 constraint X_ck check(X>=0 and X<=100),
 constraint Y_ck check(Y>=0 and Y<=100)
 );
 
 create table P_RESERVE(
-Reserve_Id int auto_increment primary key,
+Reserve_id int auto_increment primary key,
 User_id int not null,
 Room_id int not null,
 Seat_id int not null,
