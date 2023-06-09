@@ -1,3 +1,4 @@
+<?php require '../common/db.php'; ?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -35,30 +36,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-            <td>1</td>
-            <td>10</td>
-            <td>2023년 5월 22일 월요일 오후 7:06:50</td>
-            <td>2023년 5월 22일 월요일 오후 7:06:50</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-            <td>1</td>
-            <td>10</td>
-            <td>2023년 5월 22일 월요일 오후 7:06:50</td>
-            <td>2023년 5월 22일 월요일 오후 7:06:50</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-            <td>1</td>
-            <td>10</td>
-            <td>2023년 5월 22일 월요일 오후 7:06:50</td>
-            <td>2023년 5월 22일 월요일 오후 7:06:50</td>
-          </tr>
+          <?php
+          $mysqli = connect();
+          $query = "SELECT * FROM P_RESERVE;";
+          $res = mysqli_query($mysqli, $query);
+          $rows = $res->fetch_all(MYSQLI_ASSOC);
+
+          foreach($rows as $row){
+            $room_id = $row['Room_id'];
+            $user_id = $row['User_id'];
+            $seat_id = $row['Seat_id'];
+            $ticket_id = $row['Ticket_id'];
+            $start_time = $row['Start_time'];
+            $end_time = $row['End_time'];
+
+            echo "
+            <tr>
+              <td>$room_id</td>
+              <td>$user_id</td>
+              <td>$seat_id</td>
+              <td>$ticket_id</td>
+              <td>$start_time</td>
+              <td>$end_time</td>
+            </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
     </div>

@@ -1,3 +1,4 @@
+<?php require '../common/db.php'; ?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -38,33 +39,45 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>시간권</td>
-            <td>1,000</td>
-            <td>60분</td>
-            <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>시간권</td>
-            <td>1,000</td>
-            <td>60분</td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>시간권</td>
-            <td>1,000</td>
-            <td>60분</td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
+          <?php
+          $mysqli = connect();
+          $query = "SELECT * FROM P_TICKET";
+          $res = mysqli_query($mysqli, $query);
+          $rows = $res->fetch_all(MYSQLI_ASSOC);
+
+          foreach($rows as $row){
+            $ticket_id = $row["Ticket_id"];
+            $type = $row["Type"];
+            $price = $row["Price"];
+            $duration_min = $row["Duration_min"];
+
+            $price_fit = number_format($price).'원';
+            $type_fit = '';
+            $duration_fit = number_format($duration_min).'분';
+            $duration_unit = '';
+
+            if($type=='basic'){
+              $type_fit = '시간권';
+              $duration_unit = $duration_min/60 .'시간';
+            }else if($type=='fixed'){
+              $type_fit = '정기권';
+              $duration_unit = $duration_min/(60*24) .'일';
+            }
+
+            echo "
+            <tr>
+              <td>$ticket_id</td>
+              <td>$type ($type_fit)</td>
+              <td>$price_fit</td>
+              <td>$duration_fit ($duration_unit)</td>
+              <td><button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                  data-bs-whatever='@m1'>Edit</button></td>
+              <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'
+                  data-bs-whatever='@m1'>Delete</button></td>
+            </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
     </div>

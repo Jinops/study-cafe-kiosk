@@ -1,3 +1,4 @@
+<?php require '../common/db.php'; ?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -29,32 +30,47 @@
             <th scope="col">Payment_id</th>
             <th scope="col">User_id</th>
             <th scope="col">Ticket_id</th>
-            <th scope="col">Payment_price</th>
-            <th scope="col">Payment_time</th>
+            <th scope="col">Price</th>
+            <th scope="col">Time</th>
+            <th scope="col">Type</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-            <td>1</td>
-            <td>120,000</td>
-            <td>023년 5월 22일 월요일 오후 7:06:50</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-            <td>1</td>
-            <td>120,000</td>
-            <td>023년 5월 22일 월요일 오후 7:06:50</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>4</td>
-            <td>1</td>
-            <td>120,000</td>
-            <td>023년 5월 22일 월요일 오후 7:06:50</td>
-          </tr>
+          <?php
+          $mysqli = connect();
+          $query = "SELECT * FROM P_PAYMENT;";
+          $res = mysqli_query($mysqli, $query);
+          $rows = $res->fetch_all(MYSQLI_ASSOC);
+
+          foreach($rows as $row){
+            $payment_id = $row['Payment_id'];
+            $user_id = $row['User_id'];
+            $ticket_id = $row['Ticket_id'];
+            $price = $row['Price'];
+            $time = $row['Time'];
+            $type = $row['Type'];
+
+            $type_fit = '';
+            $price_fit = number_format($price).'원';
+
+            if($type=='card'){
+              $type_fit = '카드';
+            }else if($type=='cash'){
+              $type_fit = '현금';
+            }
+
+            echo "
+            <tr>
+              <td>$payment_id</td>
+              <td>$user_id</td>
+              <td>$ticket_id</td>
+              <td>$price_fit</td>
+              <td>$time</td>
+              <td>$type_fit</td>
+            </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
     </div>

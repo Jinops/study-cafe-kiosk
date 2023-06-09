@@ -1,3 +1,4 @@
+<?php require '../common/db.php'; ?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -35,33 +36,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>01012341234</td>
-            <td>Jinwoo Park</td>
-            <td>120,000</td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>01012341234</td>
-            <td>Jinwoo Park</td>
-            <td>120,000</td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>01012341234</td>
-            <td>Jinwoo Park</td>
-            <td>120,000</td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
+          <?php
+          $mysqli = connect();
+          $query = "SELECT * FROM P_USER";
+          $res = mysqli_query($mysqli, $query);
+          $rows = $res->fetch_all(MYSQLI_ASSOC);
+
+          foreach($rows as $row){
+            $user_id = $row['User_id'];
+            $phone = $row['Phone'];
+            $name = $row['Name'];
+            $total_payment = $row['Total_payment'];
+
+            echo"
+            <tr>
+            <td>$user_id</td>
+            <td>$phone</td>
+            <td>$name</td>
+            <td>$total_payment</td>
+            <td><button type='button' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                data-bs-whatever='@m1'>Edit</button></td>
+            <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal' data-bs-whatever='@m1'>Delete</button></td>
+            </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
     </div>
