@@ -63,12 +63,17 @@ $ticket_price=$_GET['ticket_price'];
           VALUES($user_id, $ticket_id, $price, '$currentTime', '$payment_type')";  
           $res = mysqli_query($mysqli, $query_payment);
 
-          # reservation
+          # reserve
           $query_reserve = "INSERT INTO P_RESERVE (User_id, Room_id, Seat_id, Ticket_id, Start_time, End_time) 
           VALUES($user_id, $room_id, $seat_id, $ticket_id, '$currentTime', '$endTime')";  
-          echo $query_reserve;
           $res = mysqli_query($mysqli, $query_reserve);
+          $reserve_id = mysqli_insert_id($mysqli);
 
+           # user-reserve
+          $query_user_reserve = "INSERT INTO P_USER_RESERVE (User_id, Reserve_id) 
+          VALUES($user_id, $reserve_id)";  
+          $res = mysqli_query($mysqli, $query_user_reserve);
+          
           # user
           $query_user = "UPDATE P_USER SET Total_payment=Total_payment+$price WHERE User_id=$user_id;";
           $res = mysqli_query($mysqli, $query_user);
@@ -80,6 +85,8 @@ $ticket_price=$_GET['ticket_price'];
           echo $query_ticket."<br/>";
           echo $query_payment."<br/>";
           echo $query_reserve."<br/>";
+          echo $query_user_reserve."<br/>";
+          echo $query_user."<br/>";
           echo $e."<br/><br/>";
         }
         session_destroy();
