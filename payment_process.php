@@ -7,7 +7,6 @@ $ticket_id=$_GET['ticket_id'];
 $room_id=$_GET['room_id'];
 $seat_id=$_GET['seat_id'];
 $payment_type=$_GET['payment_type'];
-$ticket_price=$_GET['ticket_price'];
 ?>
 
 <!DOCTYPE html>

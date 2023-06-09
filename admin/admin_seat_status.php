@@ -32,7 +32,8 @@
       <hr/>
       <div id="room_seat">
       <?php
-      require '../common/room_seat.php';
+      ini_set('display_errors', '0');
+      include '../common/room_seat.php';
       ?>
       </div>
   </div>
