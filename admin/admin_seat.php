@@ -1,3 +1,4 @@
+<?php require '../common/db.php'; ?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -25,52 +26,9 @@
     <div class="col-10 p-5">
       <h3>좌석 관리</h3>
       <hr/>
-      <!-- TODO: remove -->
-      <div id="TODO_REMOVE">
-      <!-- controller -->
-      <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-        <li class="col nav-item" role="presentation">
-          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-            type="button" role="tab" aria-controls="pills-home" aria-selected="true">1열</button>
-        </li>
-        <li class="col nav-item" role="presentation">
-          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-            type="button" role="tab" aria-controls="pills-profile" aria-selected="false">2열</button>
-        </li>
-      </ul>
-      <!-- content -->
-      <div class="tab-content text-center border p-5" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
-          <div class="room" style="width: 50%; padding-bottom:50%;">
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%; top:5%;">1</button>
-            <button class="seat btn btn-sm btn-dark" style="left:20%;top:25%;" disabled>2 (사용중)</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:45%;">3</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:65%;">4</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:20%;top:85%;">5</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%; top:5%;">6</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:25%;">7</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:45%;">8</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:65%;">9</button>
-            <button class="seat btn btn-sm btn-outline-dark" style="left:60%;top:85%;">10</button>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <div class="room" style="width: 25%; padding-bottom:50%;">
-            <button class="seat btn btn-outline-dark" style="left:20%; top:5%;">1</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:25%;">2</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:45%;">3</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:65%;">4</button>
-            <button class="seat btn btn-outline-dark" style="left:20%;top:85%;">5</button>
-            <button class="seat btn btn-outline-dark" style="left:60%; top:5%;">6</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:25%;">7</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:45%;">8</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:65%;">9</button>
-            <button class="seat btn btn-outline-dark" style="left:60%;top:85%;">10</button>
-          </div>
-        </div>
-      </div>
-    </div>
-      <!-- -->
+      <?php
+      require '../common/room_seat.php';
+      ?>
 
       <div class="text-end m-3">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Add</button>
