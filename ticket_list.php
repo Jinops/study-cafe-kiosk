@@ -37,13 +37,21 @@ $ticket_type=$_GET['ticket_type'];
         foreach($rows as $row){
           $ticket_id = $row['Ticket_id'];
           $price = number_format($row['Price']); 
-          $duration = $row['Duration_min']/60.0;
+          $duration = $row['Duration_min'];
+
+          if($ticket_type=='basic'){
+            $duration = $duration/60 .'시간';
+          } else if ($ticket_type=='fixed'){
+            $duration = $duration/(60*24) .'일';
+          } else {
+            $duration = $duration .'분';
+          }
           
           echo "
           <div class='col-4'>
             <a href='./seat.php?ticket_type=$ticket_type&ticket_id=$ticket_id'>
               <button class='btn btn-dark btn-lg my-1 w-100'>
-            <i class='bi bi-clock'></i> ".$duration."시간 이용권<br />".$price."원</button>
+            <i class='bi bi-clock'></i> $duration 이용권<br />".$price."원</button>
             </a>
           </div>
           ";
