@@ -37,7 +37,6 @@
             <th scope="col">Duration_min</th>
             <th scope="col">Duration (Converted)</th>
             <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -72,10 +71,7 @@
                 <td><input name='price' type=number value='$price'> 원</td>
                 <td><input name='duration_min' type=number value='$duration_min'> 분</td>
                 <td>$duration_fit</td>
-                <td><button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
-                    data-bs-whatever='@m1'>Edit</button></td>
-                <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal'
-                    data-bs-whatever='@m1'>Delete</button></td>
+                <td><button class='btn btn-info'>Edit</button></td>
               </tr>
             </form>
             ";
@@ -85,45 +81,6 @@
       </table>
     </div>
   </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="editModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5">Edit</h1>
-        </div>
-        <div class="modal-body">
-          <form>
-
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button class="btn btn-primary">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="deleteModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5">Delete</h1>
-        </div>
-        <div class="modal-body">
-          Are you sure?
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- -->
-
 </body>
 
 </html>

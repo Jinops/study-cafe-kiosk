@@ -22,6 +22,9 @@
   <li id="seat" class="p-3">
     <a class="nav-link" href="./admin_seat.php">좌석 관리</a>
   </li>
+  <li id="seat_status" class="p-3">
+    <a class="nav-link" href="./admin_seat_status.php">좌석 현황</a>
+  </li>
   <li id="reservation" class="p-3">
     <a class="nav-link" href="./admin_reservation.php">예약 내역</a>
   </li>
