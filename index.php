@@ -26,10 +26,10 @@
       <div class="row">
         <div class="col-5">
           <div class="row">
-            <div class="col-7">
+            <div class="col-6">
               <h2>공지사항</h2>
             </div>
-            <div class="col-5 text-end">
+            <div class="col-6 text-end">
               <div class="btn" onclick="window.open('./admin/admin_notice.php')">
                 <i class="bi bi-gear"></i>
                 관리자 페이지
