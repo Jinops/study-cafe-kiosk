@@ -1,19 +1,7 @@
+#room_seat {
+  width: 50%;
+}
+
 .room {
-  border: 0.1em solid black;
-  display: inline-block;
-  position: relative;
-  max-height: 50px;
-}
-
-.seat {
-  border: 1px solid black;
-  width: 20%;
-  height: 10%;
-  position:absolute;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-  background-color: #212529;
-  color: white;
-
+  pointer-events : none;
 }

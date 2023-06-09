@@ -14,7 +14,7 @@ try {
     $name = $row['Name'];
     echo "
     <li class='col nav-item $active' role='presentation'>
-      <button class='nav-link $active' data-bs-toggle='pill' data-bs-target='#pills-$room_id'
+      <button class='nav-link btn_room $active' data-bs-toggle='pill' data-bs-target='#pills-$room_id'
       type='button' role='tab' aria-controls='pills-$room_id'>$name</button>
     </li>
     ";
@@ -80,3 +80,35 @@ try {
     }
   ?>
 </div>
+
+<style>
+  .room {
+    border: 0.1em solid black;
+    display: inline-block;
+    position: relative;
+    max-height: 50px;
+  }
+
+  .seat {
+    border: 1px solid black;
+    position:absolute;
+  }
+
+  .btn_room{
+    color: gray;
+  }
+  .btn_room:hover{
+    color: #212529;
+  }
+
+
+  .nav-pills .btn_room.active, .nav-pills .show>.btn_room{
+    background-color: #212529;
+    color: white;
+
+  }
+
+  .btn.disabled, .btn:disabled{
+    background-color: gray;
+  }
+</style>

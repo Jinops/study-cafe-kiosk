@@ -26,9 +26,11 @@
     <div class="col-10 p-5">
       <h3>좌석 관리</h3>
       <hr/>
+      <div id="room_seat">
       <?php
       require '../common/room_seat.php';
       ?>
+      </div>
 
       <div class="text-end m-3">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Add</button>
