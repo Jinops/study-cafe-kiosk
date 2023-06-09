@@ -49,39 +49,35 @@
           </tr>
         </thead>
         <tbody>
+        <?php
+        $mysqli = connect();
+        $query = "SELECT * FROM P_SEAT;";
+        $res = mysqli_query($mysqli, $query);
+        $rows = $res->fetch_all(MYSQLI_ASSOC);
+
+        foreach($rows as $row){
+          $Seat_id = $row['Seat_id'];
+          $Room_id = $row['Room_id'];
+          $Width = $row['Width'];
+          $Height = $row['Height'];
+          $x = $row['X'];
+          $y = $row['Y'];
+
+          echo "
           <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>10</td>
-            <td>5</td>
-            <td>0</td>
-            <td>0</td>
-            <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
+            <td>$Room_id</td>
+            <td>$Seat_id</td>
+            <td>$Width</td>
+            <td>$Height</td>
+            <td>$x</td>
+            <td>$y</td>
+            <td><button class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                data-bs-whatever='@m1'>Edit</button></td>
+            <td><button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteModal' data-bs-whatever='@m1'>Delete</button></td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>10</td>
-            <td>5</td>
-            <td>0</td>
-            <td>0</td>
-            <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>10</td>
-            <td>5</td>
-            <td>0</td>
-            <td>0</td>
-            <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal"
-                data-bs-whatever="@m1">Edit</button></td>
-                <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@m1">Delete</button></td>
-          </tr>
+          ";
+        }
+        ?>
         </tbody>
       </table>
     </div>
