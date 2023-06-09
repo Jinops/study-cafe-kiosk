@@ -63,6 +63,7 @@ $reserve_id=$_GET['reserve_id'];
           </a>
           ";
         } else if ($type=='fixed'){
+          session_destroy();
           echo "
           <h4>정기권 사용자 - 입실하세요</h4>
           ";
@@ -70,9 +71,6 @@ $reserve_id=$_GET['reserve_id'];
           <div>
             <a href='./'><button class='btn btn-lg btn-dark'>
               초기화면
-            </button></a>
-            <a href='leave_process.php?reserve_id=$reserve_id'><button class='btn btn-lg btn-secondary'>
-              퇴실
             </button></a>
           </div>
           ";

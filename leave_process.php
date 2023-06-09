@@ -11,6 +11,7 @@ try {
   $query = "UPDATE P_RESERVE SET End_time='$currentTime' WHERE Reserve_id=$reserve_id;";
   $res = mysqli_query($mysqli, $query);
 
+  session_destroy();
   echo "
   <script>
     alert('퇴실이 완료되었습니다.');

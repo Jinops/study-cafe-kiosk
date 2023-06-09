@@ -9,8 +9,6 @@ $content = str_replace("'", '', $content);
 try {  
   $mysqli = connect();
   $query = "UPDATE P_NOTICE SET Content='$content' WHERE Notice_id=$notice_id";
-  # TODO: 따옴표 처리
-  echo $query;
   $res = mysqli_query($mysqli, $query);
 
   echo "

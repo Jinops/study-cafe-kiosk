@@ -60,7 +60,7 @@
             if(strtotime($currentTime) < strtotime($end_time)){
               $action = "
               <a href='edit/admin_reservation_leave.php?reserve_id=$reserve_id'>
-              <button class='btn btn-danger'>강제퇴실</button>
+                <button class='btn btn-danger'>강제퇴실</button>
               </a>
               ";
             } else{
