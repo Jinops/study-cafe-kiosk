@@ -39,9 +39,7 @@ try {
       echo $query;
       echo "<script>location.replace('../ticket.php');</script>";
     }
-    
   }
-
 } catch (Exception $e){
   echo $query;
   echo $e;
