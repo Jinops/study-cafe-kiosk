@@ -31,12 +31,22 @@
   <li id="payment" class="p-3">
     <a class="nav-link" href="./admin_payment.php">결제 내역</a>
   </li>
+  <hr/>
+  <li class="p-3">
+    <a class="nav-link" href='#' onclick=resetDB()>!! DB 초기화 !!</a>
+  </li>
 </ul>
 
 <script>
   function setSelectedMenu(menuId) {
     menu = document.getElementById(menuId);
     menu.classList.add("selected");
+  }
+
+  function resetDB() {
+    if (confirm('DB를 초기화화고, 테스트 데이터를 생성하시겠습니까?') == true) {
+      location.replace('./edit/admin_reset.php');
+    }
   }
 </script>
 
