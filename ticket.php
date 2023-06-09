@@ -16,6 +16,7 @@ require 'common/login_check.php';
   <!-- for custom-->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/ticket.css">
+  <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>

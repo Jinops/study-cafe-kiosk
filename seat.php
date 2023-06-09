@@ -19,6 +19,7 @@ $ticket_id=$_GET['ticket_id'];
   <!-- for custom-->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/seat.css">
+  <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>

@@ -20,6 +20,7 @@ $reserve_id=$_GET['reserve_id'];
   <!-- for custom-->
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/leave.css">
+  <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>
@@ -50,7 +51,7 @@ $reserve_id=$_GET['reserve_id'];
         echo "
         <a href='leave_process.php?reserve_id=$reserve_id'>
           <button class='btn btn-xs btn-dark fs-1 btn_leave_type'>
-            <i class='bi bi-clock'></i><br />퇴실하기
+          <i class='bi bi-box-arrow-left'></i><br />퇴실하기
           </button>
         </a>
         ";

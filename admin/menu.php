@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="styles/style.css">
+<link rel="icon" href="../images/favicon.ico">
 
 <ul id="menu" class="navbar-nav pt-3">
   <div class="mx-3">
