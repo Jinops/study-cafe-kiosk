@@ -87,7 +87,7 @@
               <td><input name='price' type=number min=1 value='$price'> 원</td>
               <td><input name='duration_min' type=number min=1 value='$duration_min'> 분</td>
               <td></td>
-              <td><button class='btn btn-primary'>Add</button></td>
+              <td><input type='submit' value='Add' class='btn btn-primary'></td>
             </tr>
           </form>
         </tbody>

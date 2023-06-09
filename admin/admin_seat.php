@@ -54,10 +54,10 @@
             echo "
             <form method='post' action='./edit/admin_seat_room_edit.php'>
               <tr>
-                <td><input name='room_id' value='$room_id' readonly></td>
+                <td><input type='number' name='room_id' value='$room_id' readonly></td>
                 <td><input name='name' value='$name'></td>
-                <td><input name='width' value='$width'></td>
-                <td><input name='height' value='$height'></td>
+                <td><input type='number' name='width' value='$width'></td>
+                <td><input type='number' name='height' value='$height'></td>
                 <td><input type='submit' value='Edit' class='btn btn-info'></td>
               </tr>
             </form>";
@@ -96,12 +96,12 @@
           echo "
           <form method='post' action='./edit/admin_seat_edit.php'>
             <tr>
-              <td><input value='$room_id' readonly></td>
-              <td><input name='seat_id' value='$seat_id' readonly></td>
-              <td><input name='width' value='$width'></td>
-              <td><input name='height' value='$height'></td>
-              <td><input name='x' value='$x'></td>
-              <td><input name='y' value='$y'></td>
+              <td><input type='number' value='$room_id' readonly></td>
+              <td><input type='number' name='seat_id' value='$seat_id' readonly></td>
+              <td><input type='number' name='width' value='$width'></td>
+              <td><input type='number' name='height' value='$height'></td>
+              <td><input type='number' name='x' value='$x'></td>
+              <td><input type='number' name='y' value='$y'></td>
               <td><input type='submit' value='Edit' class='btn btn-info'></td>
             </tr>
           </form>
