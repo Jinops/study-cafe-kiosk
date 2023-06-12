@@ -66,8 +66,7 @@
                 <a href='./admin_payment.php?user_id=$user_id'>
                 <button class='btn btn-primary'>결제</button></a>
               </td>
-              <td><input type='submit' form='userForm' value='수정' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
-                  data-bs-whatever='@m1'></td>
+              <td><input type='submit' form='userForm' value='수정' class='btn btn-info'></td>
               <td>
                 <a href='./responses/admin_user_delete.php?user_id=$user_id'>
                   <button class='btn btn-danger'>삭제</button>
