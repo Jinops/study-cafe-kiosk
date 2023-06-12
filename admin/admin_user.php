@@ -32,7 +32,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Name</th>
             <th scope="col">Total_payment</th>
-            <th scope="col">Payment</th>
+            <th scope="col">History</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
@@ -61,9 +61,10 @@
             </form>
                 <td><input value='$total_payment_fit' readonly></td>
                 <td>
+                  <a href='./admin_reservation.php?user_id=$user_id'>
+                  <button class='btn btn-primary'>예약</button></a>
                   <a href='./admin_payment.php?user_id=$user_id'>
-                    <button class='btn btn-primary'>결제 내역</button>
-                  </a>
+                  <button class='btn btn-primary'>결제</button></a>
                 </td>
                 <td><input type='submit' form='userForm' value='수정' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
                     data-bs-whatever='@m1'></td>
