@@ -1,6 +1,6 @@
 <?php 
 require '../common/db.php'; 
-$user_id = $_GET['user_id'];
+$user_id = (isset($_GET['user_id'])) ? $_GET['user_id'] : NULL;
 ?>
 <!DOCTYPE html>
 <html lang="ko">
