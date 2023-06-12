@@ -63,7 +63,7 @@
 
             echo "
             <tr>
-              <form id='ticketForm' method='post' action='./edit/admin_ticket_edit.php'>
+              <form id='ticketForm' method='post' action='./responses/admin_ticket_edit.php'>
                 <td><input name='ticket_id' value='$ticket_id' readonly></td>
                 <td><input value='$type ($type_fit)' readonly></td>
                 <td><input name='price' type=number min=1 value='$price'> 원</td>
@@ -72,7 +72,7 @@
               </form>
               <td><input type='submit' targetForm='ticketForm' value='수정' class='btn btn-info'></td>
               <td>
-                <a href='./edit/admin_ticket_delete.php?ticket_id=$ticket_id'>
+                <a href='./responses/admin_ticket_delete.php?ticket_id=$ticket_id'>
                   <button class='btn btn-danger'>삭제</button>
                 </a>
               </td>
@@ -81,7 +81,7 @@
           }
           ?>
           <!-- ADD -->
-          <form method='post' action='./edit/admin_ticket_add.php'>
+          <form method='post' action='./responses/admin_ticket_add.php'>
             <tr>
               <td><input name='ticket_id' value='(new)' readonly></td>
               <td>

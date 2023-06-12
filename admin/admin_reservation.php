@@ -72,7 +72,7 @@ $user_id = (isset($_GET['user_id'])) ? $_GET['user_id'] : NULL;
             $action = '';
             if(strtotime($currentTime) < strtotime($end_time)){
               $action = "
-              <a href='edit/admin_reservation_leave.php?reserve_id=$reserve_id'>
+              <a href='responses/admin_reservation_leave.php?reserve_id=$reserve_id'>
                 <button class='btn btn-danger'>강제퇴실</button>
               </a>
               ";

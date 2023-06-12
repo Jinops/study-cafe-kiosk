@@ -52,7 +52,7 @@
             $height = $row['Height'];
 
             echo "
-            <form method='post' action='./edit/admin_seat_room_edit.php'>
+            <form method='post' action='./responses/admin_seat_room_edit.php'>
               <tr>
                 <td><input type='number' name='room_id' value='$room_id' readonly></td>
                 <td><input name='name' value='$name'></td>
@@ -94,7 +94,7 @@
           $y = $row['Y'];
 
           echo "
-          <form method='post' action='./edit/admin_seat_edit.php'>
+          <form method='post' action='./responses/admin_seat_edit.php'>
             <tr>
               <td><input type='number' value='$room_id' readonly></td>
               <td><input type='number' name='seat_id' value='$seat_id' readonly></td>

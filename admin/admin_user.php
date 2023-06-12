@@ -54,7 +54,7 @@
 
             echo"
             <tr>
-              <form id='userForm' method='post' action='./edit/admin_user_edit.php'>
+              <form id='userForm' method='post' action='./responses/admin_user_edit.php'>
                 <td><input name='user_id' value='$user_id' readonly></td>
                 <td><input name='phone' maxlength=11 value='$phone'></td>
                 <td><input name='name' value='$name'></td>
@@ -69,7 +69,7 @@
               <td><input type='submit' form='userForm' value='수정' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
                   data-bs-whatever='@m1'></td>
               <td>
-                <a href='./edit/admin_user_delete.php?user_id=$user_id'>
+                <a href='./responses/admin_user_delete.php?user_id=$user_id'>
                   <button class='btn btn-danger'>삭제</button>
                 </a>
               </td>
