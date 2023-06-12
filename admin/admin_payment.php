@@ -1,4 +1,7 @@
-<?php require '../common/db.php'; ?>
+<?php 
+require '../common/db.php'; 
+$user_id = $_GET['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -22,7 +25,13 @@
       ?>
     </div>
     <div class="col-10 p-5">
-      <h3>결제 내역</h3>
+      <h3>결제 내역
+        <?php
+        if($user_id){
+          echo "(User id=$user_id)";
+        }
+        ?>
+      </h3>
       <hr/>
       <table class="table table-bordered table-striped table-hover">
         <thead>
@@ -38,7 +47,11 @@
         <tbody>
           <?php
           $mysqli = connect();
-          $query = "SELECT * FROM P_PAYMENT;";
+          $query = "SELECT * FROM P_PAYMENT";
+
+          if($user_id){
+            $query = $query.' WHERE User_id='.$user_id;
+          }
           $res = mysqli_query($mysqli, $query);
           $rows = $res->fetch_all(MYSQLI_ASSOC);
 

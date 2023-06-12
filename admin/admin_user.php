@@ -32,6 +32,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Name</th>
             <th scope="col">Total_payment</th>
+            <th scope="col">Payment</th>
             <th scope="col">Edit</th>
           </tr>
         </thead>
@@ -51,16 +52,21 @@
             $total_payment_fit = number_format($total_payment).'원';
 
             echo"
-            <form method='post' action='./edit/admin_user_edit.php'>
+            <form id='userForm' method='post' action='./edit/admin_user_edit.php'>
               <tr>
                 <td><input name='user_id' value='$user_id' readonly></td>
                 <td><input name='phone' maxlength=11 value='$phone'></td>
                 <td><input name='name' value='$name'></td>
+            </form>
                 <td><input value='$total_payment_fit' readonly></td>
-                <td><input type='submit' value='Edit' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                <td>
+                  <a href='./admin_payment.php?user_id=$user_id'>
+                    <button class='btn btn-primary'>결제 내역</button>
+                  </a>
+                </td>
+                <td><input type='submit' form='userForm' value='Edit' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
                     data-bs-whatever='@m1'></td>
               </tr>
-            </form>
             ";
           }
           ?>
