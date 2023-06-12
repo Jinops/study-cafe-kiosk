@@ -63,14 +63,14 @@
 
             echo "
             <tr>
-              <form id='ticketForm' method='post' action='./responses/admin_ticket_edit.php'>
+              <form id='ticketForm$ticket_id' method='post' action='./responses/admin_ticket_edit.php'>
                 <td><input name='ticket_id' value='$ticket_id' readonly></td>
                 <td><input value='$type ($type_fit)' readonly></td>
                 <td><input name='price' type=number min=1 value='$price'> 원</td>
                 <td><input name='duration_min' type=number min=1 value='$duration_min'> 분</td>
                 <td>$duration_fit</td>
               </form>
-              <td><input type='submit' targetForm='ticketForm' value='수정' class='btn btn-info'></td>
+              <td><input type='submit' form='ticketForm$ticket_id' value='수정' class='btn btn-info'></td>
               <td>
                 <a href='./responses/admin_ticket_delete.php?ticket_id=$ticket_id'>
                   <button class='btn btn-danger'>삭제</button>

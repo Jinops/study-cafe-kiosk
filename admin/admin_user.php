@@ -54,7 +54,7 @@
 
             echo"
             <tr>
-              <form id='userForm' method='post' action='./responses/admin_user_edit.php'>
+              <form id='userForm$user_id' method='post' action='./responses/admin_user_edit.php'>
                 <td><input name='user_id' value='$user_id' readonly></td>
                 <td><input name='phone' maxlength=11 value='$phone'></td>
                 <td><input name='name' value='$name'></td>
@@ -66,7 +66,7 @@
                 <a href='./admin_payment.php?user_id=$user_id'>
                 <button class='btn btn-primary'>결제</button></a>
               </td>
-              <td><input type='submit' form='userForm' value='수정' class='btn btn-info'></td>
+              <td><input type='submit' form='userForm$user_id' value='수정' class='btn btn-info'></td>
               <td>
                 <a href='./responses/admin_user_delete.php?user_id=$user_id'>
                   <button class='btn btn-danger'>삭제</button>
@@ -80,44 +80,6 @@
       </table>
     </div>
   </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5">Edit</h1>
-          </div>
-          <div class="modal-body">
-            <form>
-  
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button class="btn btn-primary">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="modal fade" id="deleteModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5">Delete</h1>
-          </div>
-          <div class="modal-body">
-            Are you sure?
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button class="btn btn-danger">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- -->
 
 </body>
 
