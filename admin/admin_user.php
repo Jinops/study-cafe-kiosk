@@ -53,27 +53,27 @@
             $total_payment_fit = number_format($total_payment).'원';
 
             echo"
-            <form id='userForm' method='post' action='./edit/admin_user_edit.php'>
-              <tr>
+            <tr>
+              <form id='userForm' method='post' action='./edit/admin_user_edit.php'>
                 <td><input name='user_id' value='$user_id' readonly></td>
                 <td><input name='phone' maxlength=11 value='$phone'></td>
                 <td><input name='name' value='$name'></td>
-            </form>
-                <td><input value='$total_payment_fit' readonly></td>
-                <td>
-                  <a href='./admin_reservation.php?user_id=$user_id'>
-                  <button class='btn btn-primary'>예약</button></a>
-                  <a href='./admin_payment.php?user_id=$user_id'>
-                  <button class='btn btn-primary'>결제</button></a>
-                </td>
-                <td><input type='submit' form='userForm' value='수정' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
-                    data-bs-whatever='@m1'></td>
-                <td>
-                  <a href='./edit/admin_user_delete.php?user_id=$user_id'>
-                    <button class='btn btn-danger'>삭제</button>
-                  </a>
-                </td>
-              </tr>
+              </form>
+              <td><input value='$total_payment_fit' readonly></td>
+              <td>
+                <a href='./admin_reservation.php?user_id=$user_id'>
+                <button class='btn btn-primary'>예약</button></a>
+                <a href='./admin_payment.php?user_id=$user_id'>
+                <button class='btn btn-primary'>결제</button></a>
+              </td>
+              <td><input type='submit' form='userForm' value='수정' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                  data-bs-whatever='@m1'></td>
+              <td>
+                <a href='./edit/admin_user_delete.php?user_id=$user_id'>
+                  <button class='btn btn-danger'>삭제</button>
+                </a>
+              </td>
+            </tr>
             ";
           }
           ?>

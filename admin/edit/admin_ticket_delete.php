@@ -3,11 +3,14 @@ include '../../common/db.php';
 
 $ticket_id = $_GET['ticket_id'];
 
-
 try {
   $mysqli = connect();
-  $query = "DELETE FROM P_TICKET WHERE Ticket_id=$ticket_id;";  
-  $res = mysqli_query($mysqli, $query);
+  $deactive_FK_query = "SET foreign_key_checks = 0;";
+  $delete_query = "DELETE FROM P_TICKET WHERE Ticket_id=$ticket_id;";  
+  $active_FK_query = "SET foreign_key_checks = 1";
+  
+  $query = $deactive_FK_query.$delete_query.$active_FK_query;
+  mysqli_multi_query($mysqli, $query);
 
   echo "
   <script>

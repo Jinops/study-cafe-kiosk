@@ -34,6 +34,7 @@
             <th scope="col">Duration_min</th>
             <th scope="col">Duration (Converted)</th>
             <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -61,16 +62,21 @@
             }
 
             echo "
-            <form method='post' action='./edit/admin_ticket_edit.php'>
-              <tr>
+            <tr>
+              <form id='ticketForm' method='post' action='./edit/admin_ticket_edit.php'>
                 <td><input name='ticket_id' value='$ticket_id' readonly></td>
                 <td><input value='$type ($type_fit)' readonly></td>
                 <td><input name='price' type=number min=1 value='$price'> 원</td>
                 <td><input name='duration_min' type=number min=1 value='$duration_min'> 분</td>
                 <td>$duration_fit</td>
-                <td><input type='submit' value='수정' class='btn btn-info'></td>
-              </tr>
-            </form>
+              </form>
+              <td><input type='submit' targetForm='ticketForm' value='수정' class='btn btn-info'></td>
+              <td>
+                <a href='./edit/admin_ticket_delete.php?ticket_id=$ticket_id'>
+                  <button class='btn btn-danger'>삭제</button>
+                </a>
+              </td>
+            </tr>
             ";
           }
           ?>
@@ -84,10 +90,10 @@
                 <option value="fixed">fixed(정기권)</option>
               </select>  
               </td>
-              <td><input name='price' type=number min=1 value='$price'> 원</td>
-              <td><input name='duration_min' type=number min=1 value='$duration_min'> 분</td>
+              <td><input name='price' type=number min=1 value=0> 원</td>
+              <td><input name='duration_min' type=number min=1 value=0> 분</td>
               <td></td>
-              <td><input type='submit' value='Add' class='btn btn-primary'></td>
+              <td colspan=2><input type='submit' value='추가' class='btn btn-primary text-center' style='width:100%'></td>
             </tr>
           </form>
         </tbody>
