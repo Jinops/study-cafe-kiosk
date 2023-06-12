@@ -56,8 +56,8 @@
             <tr>
               <form id='userForm$user_id' method='post' action='./responses/admin_user_edit.php'>
                 <td><input name='user_id' value='$user_id' readonly></td>
-                <td><input name='phone' maxlength=11 value='$phone'></td>
-                <td><input name='name' value='$name'></td>
+                <td><input name='phone' minlength=1 maxlength=11 value='$phone'></td>
+                <td><input name='name' minlength=1 maxlength=10 value='$name'></td>
               </form>
               <td><input value='$total_payment_fit' readonly></td>
               <td>

@@ -63,7 +63,7 @@
             <div class="input-group input-group-lg">
               <div class="input-group-text"><i class="bi bi-lock"></i></div>
               <input name="password" id="input_password" class="form-control" type="password" placeholder="4자리 숫자"
-                inputmode="numeric" maxlength="4">
+                inputmode="numeric" minlength=1 maxlength=4>
             </div>
           </form>
             <br />
@@ -97,7 +97,7 @@
             <label for="r_input_phone" class="col-form-label">전화번호</label>
             <input name="phone" id="r_input_phone" class="form-control" placeholder="하이픈(-) 빼고 입력" inputmode="numeric" required>
             <label for="r_input_password" class="col-form-label">비밀번호</label>
-            <input name="password" id="r_input_password" class="form-control" type="password" placeholder="4자리 숫자" inputmode="numeric" maxlength="4" required>
+            <input name="password" id="r_input_password" class="form-control" type="password" placeholder="4자리 숫자" inputmode="numeric" minlength=1 maxlength=4 required>
           </form>
         </div>
         <div class="modal-footer">

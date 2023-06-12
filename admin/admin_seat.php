@@ -55,9 +55,9 @@
             <form method='post' action='./responses/admin_seat_room_edit.php'>
               <tr>
                 <td><input type='number' name='room_id' value='$room_id' readonly></td>
-                <td><input name='name' value='$name'></td>
-                <td><input type='number' name='width' value='$width'></td>
-                <td><input type='number' name='height' value='$height'></td>
+                <td><input name='name' value='$name' minlength=1 maxlength=20></td>
+                <td><input type='number' name='width' value='$width' min=1 max=100></td>
+                <td><input type='number' name='height' value='$height' min=1 max=100></td>
                 <td><input type='submit' value='수정' class='btn btn-info'></td>
               </tr>
             </form>";
@@ -98,10 +98,10 @@
             <tr>
               <td><input type='number' value='$room_id' readonly></td>
               <td><input type='number' name='seat_id' value='$seat_id' readonly></td>
-              <td><input type='number' name='width' value='$width'></td>
-              <td><input type='number' name='height' value='$height'></td>
-              <td><input type='number' name='x' value='$x'></td>
-              <td><input type='number' name='y' value='$y'></td>
+              <td><input type='number' name='width' value='$width' min=1 max=100></td>
+              <td><input type='number' name='height' value='$height' min=1 max=100></td>
+              <td><input type='number' name='x' value='$x' min=1 max=100></td>
+              <td><input type='number' name='y' value='$y' min=1 max=100></td>
               <td><input type='submit' value='수정' class='btn btn-info'></td>
             </tr>
           </form>
