@@ -69,11 +69,6 @@ $payment_type=$_GET['payment_type'];
           $res = mysqli_query($mysqli, $query_reserve);
           $reserve_id = mysqli_insert_id($mysqli);
 
-           # user-reserve
-          $query_user_reserve = "INSERT INTO P_USER_RESERVE (User_id, Reserve_id) 
-          VALUES($user_id, $reserve_id)";  
-          $res = mysqli_query($mysqli, $query_user_reserve);
-          
           # user
           $query_user = "UPDATE P_USER SET Total_payment=Total_payment+$price WHERE User_id=$user_id;";
           $res = mysqli_query($mysqli, $query_user);

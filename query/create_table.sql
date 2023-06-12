@@ -60,15 +60,6 @@ constraint res_ticketFK foreign key(Ticket_id)
    references P_TICKET(Ticket_id)
 );
 
-create table P_USER_RESERVE(
-User_id int auto_increment not null,
-Reserve_id int not null,
-constraint u_r_userFK foreign key(User_id)
-   references P_USER(User_id) ON DELETE CASCADE,
-constraint u_r_resFK foreign key(Reserve_id)
-   references P_RESERVE(Reserve_id)
-);
-
 create table P_PAYMENT(
 Payment_id int auto_increment primary key,
 User_id int not null,
