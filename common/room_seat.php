@@ -1,7 +1,6 @@
 <!-- controller -->
 <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
 <?php
-include './db.php';
 try {
   $mysqli = connect();
   $query = "SELECT DISTINCT * FROM P_ROOM;";  
