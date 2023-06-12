@@ -58,7 +58,7 @@
                 <td><input name='name' value='$name'></td>
                 <td><input type='number' name='width' value='$width'></td>
                 <td><input type='number' name='height' value='$height'></td>
-                <td><input type='submit' value='Edit' class='btn btn-info'></td>
+                <td><input type='submit' value='수정' class='btn btn-info'></td>
               </tr>
             </form>";
           }
@@ -102,7 +102,7 @@
               <td><input type='number' name='height' value='$height'></td>
               <td><input type='number' name='x' value='$x'></td>
               <td><input type='number' name='y' value='$y'></td>
-              <td><input type='submit' value='Edit' class='btn btn-info'></td>
+              <td><input type='submit' value='수정' class='btn btn-info'></td>
             </tr>
           </form>
           ";

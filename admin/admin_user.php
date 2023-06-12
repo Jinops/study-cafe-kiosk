@@ -34,6 +34,7 @@
             <th scope="col">Total_payment</th>
             <th scope="col">Payment</th>
             <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -64,8 +65,13 @@
                     <button class='btn btn-primary'>결제 내역</button>
                   </a>
                 </td>
-                <td><input type='submit' form='userForm' value='Edit' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
+                <td><input type='submit' form='userForm' value='수정' class='btn btn-info' data-bs-toggle='modal' data-bs-target='#editModal'
                     data-bs-whatever='@m1'></td>
+                <td>
+                  <a href='./edit/admin_user_delete.php?user_id=$user_id'>
+                    <button class='btn btn-danger'>삭제</button>
+                  </a>
+                </td>
               </tr>
             ";
           }
