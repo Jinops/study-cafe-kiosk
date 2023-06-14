@@ -44,8 +44,14 @@
   }
 
   function resetDB() {
-    if (confirm('DB를 초기화화고, 테스트 데이터를 생성하시겠습니까?') == true) {
+    const pw = prompt('DB를 초기화화고, 테스트 데이터를 생성합니다.\n비밀번호를 입력하세요.');
+    if (pw==null){
+      return;
+    }
+    if (pw.toLowerCase()=='ie213') {
       location.replace('./responses/admin_reset.php');
+    } else {
+      alert('비밀번호가 일치하지 않습니다.');
     }
   }
 </script>

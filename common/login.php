@@ -36,7 +36,6 @@ try {
       $reserve_id=$rows_reserve[0]['Reserve_id'];
       echo "<script>location.replace('../leave.php?reserve_id=$reserve_id');</script>";
     } else{
-      echo $query;
       echo "<script>location.replace('../ticket.php');</script>";
     }
   }
