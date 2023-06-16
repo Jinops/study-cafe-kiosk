@@ -54,8 +54,8 @@ Start_time datetime not null,
 End_time datetime null,
 constraint res_userFK foreign key(User_id)
    references P_USER(User_id) ON DELETE CASCADE,
-constraint res_seatFK foreign key(Room_id)
-   references P_ROOM(Room_id),
+constraint res_seatFK foreign key(Seat_id)
+   references P_SEAT(Seat_id),
 constraint res_ticketFK foreign key(Ticket_id)
    references P_TICKET(Ticket_id)
 );
